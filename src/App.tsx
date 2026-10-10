@@ -3230,7 +3230,7 @@ export default function App() {
               <div>
                 <div className="content-box">
                   <h3 className="elodie-title" style={{ fontSize: '1.8rem', marginTop: 0, marginBottom: '14px' }}>
-                    Nhận xét Stylist &amp; Ý nghĩa
+                    Sơ lược lịch sử nguồn gốc 
                   </h3>
 
                   <div style={{ marginBottom: '14px', lineHeight: 1.6, fontSize: '14.5px' }}>
