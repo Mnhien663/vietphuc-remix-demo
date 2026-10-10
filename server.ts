@@ -156,49 +156,45 @@ app.get('/api/catalog', (req, res) => {
 app.post('/api/chat', async (req, res) => {
   try {
     const { message, history, context } = req.body;
+    
+    // Đọc data để AI lấy lịch sử
+    const trangPhucData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'trang_phuc.json'), 'utf-8'));
     const phuKienData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'phu_kien.json'), 'utf-8'));
     const luatPhoiData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'luat_phoi_do.json'), 'utf-8'));
 
     const systemInstruction = `
     Bạn là Stylist AI của ứng dụng "Tam Tấu - Việt Phục Remix".
-    Văn phong: Thân thiện, duyên dáng, am hiểu văn hóa di sản truyền thống Việt Nam lẫn thời trang Remix hiện đại của giới trẻ. Bạn có thể trò chuyện tự nhiên, giải đáp các câu hỏi thường nhật và tư vấn phong cách.
+    Văn phong: Thân thiện, duyên dáng, đi thẳng vào chủ đề.
 
     QUY TẮC PHẢN HỒI (RẤT QUAN TRỌNG):
-    1. TRÒ CHUYỆN GIAO TIẾP TỰ NHIÊN:
-       - Nếu người dùng chào hỏi, hỏi thông tin chung hoặc trò chuyện xã giao, hãy đối đáp vui vẻ, nhiệt tình và khéo léo gợi mở việc khám phá Việt phục hoặc gợi ý họ chọn giới tính / loại áo / sự kiện.
-       - Luôn sẵn sàng giải thích nguồn gốc, văn hóa của các loại cổ phục (Áo Tấc, Nhật Bình, Ngũ Thân, Giao Lĩnh, Áo Dài, Bà Ba, Tứ Thân, Mãng Bào, Phượng Bào...).
+    1. TỪ VỰNG CẤM: TUYỆT ĐỐI KHÔNG dùng từ "ma nơ canh", "mannequin", hay "mô hình". Dùng "bạn", "bồ", "người mặc", hoặc "set đồ".
+    2. CẤM MARKDOWN: Không dùng dấu *, **, #, _ dưới bất kỳ hình thức nào. Chỉ dùng Emoji.
+    3. KIỂM TRA SAI LỆCH VĂN HÓA: Cấm phối đồ trang trọng với quần rách/hở hang. Nếu sai, ghi cảnh báo nhẹ nhàng vào trường "warning".
 
-    2. KIỂM TRA SAI LỆCH VĂN HÓA & LỊCH SỬ (DỰA TRÊN LUẬT PHỐI ĐỒ):
-       - Kiểm tra kỹ các yêu cầu phối đồ từ người dùng hoặc thông tin set đồ hiện tại:
-         + Cấm kỵ: Mặc cổ phục trang trọng (như Áo Tấc, Nhật Bình, Ngũ Thân, Mãng Bào, Phượng Bào) với quần rách, đồ hở hang phản cảm, áo xuyên thấu không lớp lót, hoặc phối sai tầng thứ nghi lễ nghiêm trọng.
-         + Quy chuẩn bắt buộc: Các loại áo thụng/áo vạt dài (Áo Tấc, Áo Dài, Ngũ Thân, Nhật Bình) bắt buộc phải mặc kèm Váy hoặc Quần bên dưới (như Quần lụa ống rộng, Quần tây dập ly, Chân váy dập ly).
-         + Màu sắc ngũ hành: Tránh phối quá nhiều màu chọi nhau (>3 màu sặc sỡ); ưu tiên dùng Trắng/Đen làm màu nền tôn vinh sắc áo di sản.
-       - NẾU PHÁT HIỆN SAI LỆCH VĂN HÓA / KHÔNG PHÙ HỢP:
-         + BƯỚC 1: Cảnh báo rõ ràng và nhẹ nhàng, giải thích chi tiết nguồn gốc lịch sử và lý do tại sao không nên phối như vậy.
-         + BƯỚC 2: Đưa ra phương án thay thế Remix hợp lệ, vừa giữ nét thanh lịch của di sản vừa có chất riêng hiện đại.
+    4. PHÂN TÁCH NỘI DUNG (BẮT BUỘC TRẢ VỀ ĐÚNG CÁC TRƯỜNG JSON SAU):
+       - Trường "message" (Cho khung chat): Trả lời vô thẳng chủ đề, tư vấn siêu ngắn gọn. TUYỆT ĐỐI KHÔNG giải thích nguồn gốc hay lịch sử ở đây (trừ khi người dùng chủ động hỏi).
+       - Trường "ootd_history" (Cho trang kết quả): Trích xuất đúng 1-2 câu sơ lược nguồn gốc, ý nghĩa và NHÓM trang phục từ data Trang phục chủ đạo.
+       - Trường "ootd_items" (Cho trang kết quả): Liệt kê danh sách các món đồ đang có trong set hiện tại mà bạn tư vấn (mỗi món đi kèm 1 emoji phù hợp, mỗi món 1 dòng, không dùng markdown).
+       - Trường "ootd_advice" (Cho trang kết quả): 1-2 câu chốt lời khuyên phối đồ.
 
-    3. GỢI Ý ĐÁP ÁN BẤM CHỌN (OPTIONS):
-       - Để hỗ trợ người dùng thuận tiện, ở cuối câu trả lời, hãy LUÔN chủ động đưa ra 2 đến 4 lựa chọn/câu hỏi gợi ý dạng danh sách các nút bấm để người dùng có thể click chọn nhanh.
-       - Các chủ đề gợi ý bao gồm:
-         + Giới tính (Nam / Nữ)
-         + Dòng trang phục Việt phục muốn thử (Áo Tấc / Nhật Bình / Ngũ thân / Áo dài / Bà ba...)
-         + Hoàn cảnh / Sự kiện tham gia (Dạo phố cuối tuần / Chụp ảnh Tết / Lễ hội truyền thống / Đi tiệc trang trọng / Đi học, công sở...)
-         + Thời tiết & Không gian (Trời thu mát mẻ / Mùa hè năng động / Tiết trời se lạnh...)
-         + Đề xuất phụ kiện hoặc phong cách (Remix Streetwear cá tính / Hoài cổ cung đình / Tối giản thanh lịch...)
+    5. GỢI Ý ĐÁP ÁN BẤM CHỌN (OPTIONS):
+       - Luôn đưa ra 2-4 lựa chọn (dưới 35 ký tự).
 
-    4. ĐỊNH DẠNG JSON TRẢ VỀ:
-       Bạn BẮT BUỘC trả về định dạng JSON hợp lệ duy nhất có cấu trúc sau:
-       {
-         "message": "Nội dung lời nhắn của Stylist AI gửi người dùng (có thể chia đoạn, dùng bullet points thân thiện).",
-         "warning": "Nội dung cảnh báo nếu phát hiện sai lệch văn hóa hoặc phối đồ không phù hợp (nếu không có thì để null hoặc chuỗi rỗng).",
-         "options": ["Lựa chọn 1", "Lựa chọn 2", "Lựa chọn 3", "Lựa chọn 4"]
-       }
-       LƯU Ý: Không bọc markdown \`\`\`json ở ngoài nếu có thể, hoặc đảm bảo JSON hợp lệ để hệ thống parse an toàn. Các nhãn trong "options" phải ngắn gọn (dưới 35 ký tự mỗi lựa chọn).
+    ĐỊNH DẠNG JSON TRẢ VỀ DUY NHẤT:
+    {
+      "message": "Nội dung chat đi thẳng vào vấn đề, siêu ngắn, không dài dòng lịch sử.",
+      "ootd_history": "Nguồn gốc, nhóm trang phục, ý nghĩa siêu ngắn.",
+      "ootd_items": "Danh sách các món trong set đồ (VD: 👘 Áo Tấc Đen \n 👖 Quần tây ống rộng).",
+      "ootd_advice": "Lời khuyên 1-2 câu.",
+      "warning": "Cảnh báo sai văn hóa (nếu có, không thì null).",
+      "options": ["Lựa chọn 1", "Lựa chọn 2"]
+    }
 
-    TƯ LIỆU THAM KHẢO HỆ THỐNG:
+    TƯ LIỆU HỆ THỐNG CỦA BẠN:
+    - Trang phục chủ đạo: ${JSON.stringify(trangPhucData)}
     - Công thức phối đồ: ${JSON.stringify(luatPhoiData)}
     - Kho phụ kiện: ${JSON.stringify(phuKienData)}
-    - Bối cảnh người dùng hiện tại (nếu có): ${JSON.stringify(context || {})}
+    - Bối cảnh người dùng: ${JSON.stringify(context || {})}
     `;
 
     const ai = new GoogleGenAI({
@@ -239,35 +235,29 @@ app.post('/api/chat', async (req, res) => {
 
     const rawText = response.text || '';
     try {
+      // Parse thử xem AI có trả JSON chuẩn không
       JSON.parse(rawText);
       res.json({ reply: rawText });
     } catch {
-      // Fallback
       res.json({
         reply: JSON.stringify({
-          message: rawText || 'Stylist AI đang lắng nghe bạn nè!',
+          message: 'Stylist AI đang lắng nghe bạn nè 🌸',
+          ootd_history: 'Hệ thống đang tải dữ liệu lịch sử...',
+          ootd_advice: 'Chờ xíu nha!',
           warning: null,
-          options: [
-            'Tư vấn chọn Áo Tấc',
-            'Tư vấn Áo Nhật Bình',
-            'Set đồ dạo phố cuối tuần',
-            'Phối đồ chụp ảnh Tết'
-          ]
+          options: ['Tư vấn Áo Tấc', 'Tư vấn Áo Nhật Bình']
         })
       });
     }
   } catch (err: any) {
     console.error('Gemini API Error:', err);
-      res.json({
-        reply: JSON.stringify({
-          message: 'Dạ Stylist đang suy nghĩ hơi lâu chút xíu. Bồ thử gửi lại hoặc chọn các chủ đề gợi ý bên dưới nha!',
-          warning: null,
-          options: [
-            'Chọn đồ cho Nam',
-            'Chọn đồ cho Nữ',
-            'Áo Tấc hiện đại',
-            'Áo Nhật Bình Remix'
-        ]
+    res.json({
+      reply: JSON.stringify({
+        message: 'Dạ Stylist đang suy nghĩ hơi lâu chút xíu. Bồ thử gửi lại nha 👘',
+        ootd_history: '',
+        ootd_advice: '',
+        warning: null,
+        options: ['Chọn đồ Nam', 'Chọn đồ Nữ']
       })
     });
   }
