@@ -2535,7 +2535,7 @@ export default function App() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <h3 className="elodie-title" style={{ fontSize: '1.6rem', margin: 0 }}>
-                      Phòng Thử Đồ Mannequin
+                      Phòng Thử Đồ 
                     </h3>
                     {/* Đã xóa badge Cốt Mannequin ở đây */}
                   </div>
