@@ -739,9 +739,10 @@ export default function App() {
     const mauNoiBat = Array.from(colorsFound).filter(c => !mauBoQuaDem.has(c));
     let colorHarmony = false;
 
-    if (colorsFound.size === 0) {
+    if (mauNoiBat.length === 0) {
       diem += 2;
       nhanXet.push('Hòa sắc đồng điệu và an toàn (+2đ)');
+      goiYAi.push('💡 Bồ nên thay đổi hoặc chọn phụ kiện khác màu trung tính (đen, trắng, bạc) để có thêm điểm nhấn cho bộ đồ.');
       colorHarmony = true;
     } else if (mauNoiBat.length === 1) {
       diem += 3;
