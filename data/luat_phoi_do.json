@@ -1,0 +1,526 @@
+{
+    "ao_dai_tan_thoi": {
+        "nu": {
+            "co_ien_tinh_khoi": [
+                {
+                    "mau_sac": "Xanh Lơ Bột (Duck-Egg Blue)",
+                    "cong_thuc_goi_y": "Rất ăn ý với quần tây ống loe màu trắng ngà hoặc xám tro nhạt, giày sneaker chunky trắng và kính mát chữ nhật gọng bạc."
+                },
+                {
+                    "mau_sac": "Hồng Phấn Khói (Dusty Blush)",
+                    "cong_thuc_goi_y": "Đẹp tuyệt đối khi đi cùng quần gấm dệt vân nổi màu kem và giày búp bê Mary Jane đen hoặc đỏ rượu tương phản."
+                },
+                {
+                    "mau_sac": "Vàng Bơ Cổ Điển (Buttercream)",
+                    "cong_thuc_goi_y": "Kết hợp cùng quần dập ly nhuyễn màu be hoặc nâu trà sữa, túi baguette da bóng màu nâu chocolate hoặc đen."
+                }
+            ],
+            "tram_nha_sang_trong": [
+                {
+                    "mau_sac": "Xanh Sage Nhạt (Pale Sage)",
+                    "cong_thuc_goi_y": "Đi cùng quần tây ống loe màu đen hoặc ghi xám đậm, khoác blazer oversize đen/xám hờ trên vai, tạo nét đối lập Y2K ấn tượng."
+                },
+                {
+                    "mau_sac": "Tím Hoa Cà Pastel (Soft Mauve)",
+                    "cong_thuc_goi_y": "Kết hợp với quần gấm trắng vân chìm, trang sức bạc bản nhỏ và kính mắt chữ nhật viền bạc/kim loại."
+                },
+                {
+                    "mau_sac": "Trắng Ngọc Trai (Pearl Ivory)",
+                    "cong_thuc_goi_y": "Đi cùng Nike AF1 hoặc Converse Run Star Hike trắng, tạo sự năng động và phá cách rõ rệt."
+                }
+            ]
+        }
+    },
+    "ao_ngu_than_tay_chen": {
+        "nu": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Hồng Phấn Cánh Sen (Blush Peach)",
+                    "cong_thuc_goi_y": "Màu hồng phớt nữ tính, dịu dàng. Đi cùng sơ mi cổ trụ trắng bên trong, trâm cài tóc kim loại hình học và túi hộp cứng."
+                },
+                {
+                    "mau_sac": "Vàng Mỡ Gà Nhạt (Pale Chiffon)",
+                    "cong_thuc_goi_y": "Sắc vàng cung đình thanh thoát. Phối với quần âu baggy be/trắng kem, giày retro Onitsuka trắng."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Xanh Lam Cổ (Classic Indigo)",
+                    "cong_thuc_goi_y": "Tông lam truyền thống của phụ nữ xưa. Đi cùng tất trắng cao cổ, giày chunky loafer và trâm cài bạc."
+                },
+                {
+                    "mau_sac": "Đỏ Đun / Trầm Hương (Deep Madder / Maroon)",
+                    "cong_thuc_goi_y": "Tông đỏ thẫm đài các, không chói gắt. Kết hợp quần tây đen dập ly, túi xách form hộp cứng cáp."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Tím Than Khói (Smoky Plum)",
+                    "cong_thuc_goi_y": "Sắc tím trầm huyền bí, đậm chất avant-garde khi phối cùng áo cổ lọ mock-neck trắng và chunky loafer."
+                },
+                {
+                    "mau_sac": "Xanh Ô Liu Sâu (Deep Olive Moss)",
+                    "cong_thuc_goi_y": "Tông màu đất mạnh mẽ, thời thượng. Đi cùng quần âu xám than, túi tote canvas in chữ graphic."
+                }
+            ]
+        },
+        "nam": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Lam Khói Nhạt (Slate Blue / Muted Cyan)",
+                    "cong_thuc_goi_y": "Vibe: Thanh nhã, mang tinh thần tối giản hiện đại và tôn lên chi tiết gấm chìm. Lớp trong: Áo thun cổ lọ thấp (mock-neck) màu trắng tinh dệt mịn ôm sát cổ. Quần: Quần âu baggy cạp cao màu be sáng (light beige/ivory) dập ly đôi thẳng tắp. Giày & Tất: Sneaker retro gầm thấp như Adidas Samba trắng sọc xám hoặc Onitsuka viền xanh, đi cùng tất trắng cổ ngắn gọn gàng. Phụ kiện: Túi tote canvas vuông vức in typo tối giản, kính gọng kim loại thanh mảnh."
+                },
+                {
+                    "mau_sac": "Xám Tro Sáng (Silver Ash)",
+                    "cong_thuc_goi_y": "Vibe: Tri thức, hiện đại, sắc lạnh và mang tính ứng dụng cao. Lớp trong: Sơ mi cổ trụ (cổ tàu) màu trắng cài kín cổ, vạt phẳng phiu. Quần: Quần âu baggy dập ly cạp cao màu đen tuyền hoặc xám than đậm. Giày & Tất: Giày da Loafer đế dày (chunky loafers) bằng da bóng mờ, phối cùng tất dệt kim trắng cao cổ kéo phẳng. Phụ kiện: Túi xách da form hộp cứng cáp màu đen tối giản, đồng hồ dây da cổ điển."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Xanh Cổ Vịt Trầm (Teal Heritage)",
+                    "cong_thuc_goi_y": "Vibe: Quý phái, mang phong thái thư sinh đài các thời xưa kết hợp dáng dấp quý ông đương đại. Lớp trong: Áo thun mock-neck trắng trơn dệt cotton co giãn. Quần: Quần âu baggy xếp ly màu xám than (charcoal grey) ống suông đứng phom. Giày & Tất: Giày Chunky Loafer màu đen bóng có đai kim loại bạc nhỏ ở mũi giày, kết hợp tất trắng cổ cao tạo độ tương phản rõ rệt. Phụ kiện: Túi xách hộp cầm tay bằng da trơn màu nâu đen, trâm cài/khuy kim loại bạc bản dẹt thiết kế hình học."
+                },
+                {
+                    "mau_sac": "Nâu Trầm Hạt Dẻ (Chestnut Brown)",
+                    "cong_thuc_goi_y": "Vibe: Mộc mạc, hoài niệm, ấm áp và đượm chất Nho nhã. Lớp trong: Sơ mi cổ trụ trắng ngà (off-white) chất vải đũi hoặc cotton thô nhẹ. Quần: Quần âu baggy cạp cao dập ly màu be đậm, cát cháy hoặc nâu camel nhạt (tone-sur-tone với áo). Giày & Tất: Giày da Loafer màu nâu chocolate đậm hoặc đen da bò, đi kèm tất dệt màu trắng ngà. Phụ kiện: Túi canvas graphic phong cách vintage hoài cổ, trâm/ghim cài kim loại màu đồng cổ hoặc bạc mờ."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Đen Mực Khói (Ink Black / Charcoal)",
+                    "cong_thuc_goi_y": "Vibe: Sắc sảo, bí ẩn, giao thoa mạnh mẽ giữa văn hóa truyền thống và phong cách avant-garde đường phố. Lớp trong: Áo thun mock-neck trắng tinh dệt sợi đanh để làm bật viền cổ đen. Quần: Quần âu baggy cạp cao màu đen tuyền xếp ly sâu, tạo độ phồng đứng dáng tương phản với tà áo chẽn lửng. Giày & Tất: Giày Sneaker retro gầm thấp đen/trắng (Adidas Samba đen sọc trắng) hoặc Chunky Loafer da bóng đế răng cưa cực dày; tất trắng cao cổ lộ rõ. Phụ kiện: Túi tote canvas đen dày dặn in họa tiết graphic khổ lớn, kính mát gọng chữ nhật viền bạc tối giản."
+                },
+                {
+                    "mau_sac": "Rêu Rừng Đậm (Deep Forest / Olive)",
+                    "cong_thuc_goi_y": "Vibe: Phá cách, dã ngoại thời thượng, mang sắc thái màu đất đậm đà và nam tính. Lớp trong: Sơ mi cổ trụ trắng tinh khôi ôm sát. Quần: Quần âu cạp cao dập ly thẳng màu xám tro trung tính hoặc màu kaki khói. Giày & Tất: Giày da Chunky Loafer da sần màu đen, kết hợp tất trắng dệt gân cao cổ. Phụ kiện: Túi hộp cứng cáp đeo chéo da lì màu đen hoặc túi tote vải thô dày dặn, ghim kim loại hình học tối giản cài trên nẹp ngực áo."
+                }
+            ]
+        }
+    },
+    "ao_ba_ba": {
+        "nu": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Hồng Đất Nhã Nhặn (Dusty Rose)",
+                    "cong_thuc_goi_y": "Quần: Quần ống rộng cạp cao (Palazzo) màu trắng ngọc trai rủ mềm. Giày: Giày sục (Mules) bít mũi da mềm màu kem, gót thấp 3cm. Phụ kiện: Vòng choker ngọc trai hạt nhỏ sát cổ, túi kẹp nách đính hạt cườm trắng, kẹp nơ lụa bản to cùng tông hồng đất hoặc trắng trên tóc."
+                },
+                {
+                    "mau_sac": "Vàng Mù Tạt Sáng (Soft Mustard)",
+                    "cong_thuc_goi_y": "Quần: Quần Culottes lanh/tencel cạp cao màu be sáng. Giày: Sandal cao gót quai mảnh màu nude hoặc vàng ánh kim nhẹ. Phụ kiện: Khuyên tai nụ ngọc trai, đồng hồ dây da thanh lịch màu nâu nhạt, túi xách mini da bóng màu be."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Nâu Đỏ Cánh Gián (Burnt Sienna)",
+                    "cong_thuc_goi_y": "Quần: Quần Palazzo lụa cạp cao màu kem ngà. Giày: Giày búp bê mũi vuông gót vuông thấp màu nâu chocolate hoặc be đậm. Phụ kiện: Dây chuyền kim loại mảnh sợi vàng hồng, kẹp càng cua kim loại cách điệu uốn lượn, túi xách đính ngọc trai cổ điển."
+                },
+                {
+                    "mau_sac": "Xanh Cổ Vịt Sâu (Deep Teal)",
+                    "cong_thuc_goi_y": "Quần: Quần âu ống suông cạp cao màu trắng tinh khôi dập ly thẳng. Giày: Giày sục Mules mũi nhọn màu trắng hoặc kem sữa. Phụ kiện: Khuyên tai khoen tròn nhỏ bằng bạc mờ, túi kẹp nách bằng da trơn form cứng, đồng hồ kim loại bạc bản nhỏ."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Xanh Cổ Biển Sẫm (Classic Navy)",
+                    "cong_thuc_goi_y": "Quần: Quần Culottes cạp cao màu be nhạt tạo độ tương phản màu khối bắt mắt. Giày: Sandal cao gót quai mảnh màu bạc hoặc trắng. Phụ kiện: Vòng tay bản mỏng kim loại bạc, túi xách form hộp cứng cáp, trâm/kẹp tóc kim loại thiết kế hình học tối giản."
+                },
+                {
+                    "mau_sac": "Tím Mận Đậm (Dark Plum)",
+                    "cong_thuc_goi_y": "Quần: Quần Palazzo lụa tơ tằm cạp cao màu trắng ngà. Giày: Giày búp bê mũi nhọn gót thấp màu đen hoặc đỏ mận bóng. Phụ kiện: Choker ngọc trai đen hoặc ngọc trai xám hạt nhỏ, túi kẹp nách mini màu đen, kẹp càng cua kim loại mạ vàng hồng."
+                }
+            ]
+        },
+        "nam": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Lam Khói Trầm (Slate Cyan)",
+                    "cong_thuc_goi_y": "Quần: Quần âu ống suông rộng cạp cao màu trắng ngà hoặc be sáng. Giày: Giày sục Mules da trơn màu be/trắng hoặc giày slip-on đế thấp. Phụ kiện: Đồng hồ dây da nâu thanh lịch, túi tote canvas vuông vức trơn màu kem."
+                },
+                {
+                    "mau_sac": "Xám Tro Ghi (Medium Ash)",
+                    "cong_thuc_goi_y": "Quần: Quần ống suông cạp cao màu trắng dập ly nhẹ. Giày: Giày da Loafer mũi vuông hoặc Mules bít mũi màu xám than/đen. Phụ kiện: Vòng tay kim loại bạc bản mỏng tối giản, túi xách form hộp cứng cáp."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Nâu Đất Khô (Earthy Ochre)",
+                    "cong_thuc_goi_y": "Quần: Quần ống suông cạp cao màu trắng dập ly nhẹ. Giày: Giày da Loafer mũi vuông hoặc Mules bít mũi màu xám than/đen. Phụ kiện: Vòng tay kim loại bạc bản mỏng tối giản, túi xách form hộp cứng cáp."
+                },
+                {
+                    "mau_sac": "Xanh Rêu Trầm (Vintage Moss)",
+                    "cong_thuc_goi_y": "Quần: Quần tây ống suông cạp cao màu be cát dập ly đứng. Giày: Giày da bít mũi màu nâu sẫm hoặc đen mờ. Phụ kiện: Vòng cổ chuỗi hạt gỗ hoặc kim loại mảnh ẩn dưới cổ áo mở khuy nhẹ."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Đen Than Chì (Charcoal Black)",
+                    "cong_thuc_goi_y": "Quần: Quần suông trắng tinh khôi cạp cao (tạo phong cách đối lập đen - trắng kinh điển). Giày: Giày da Loafer bít mũi da bóng màu đen hoặc Mules da đen gót vuông thấp. Phụ kiện: Kính mát chữ nhật gọng bạc, đồng hồ kim loại bạc bản nhỏ, túi xách hộp da đen."
+                },
+                {
+                    "mau_sac": "Nâu Cà Phê Đậm (Espresso Brown)",
+                    "cong_thuc_goi_y": "Quần: Quần ống rộng cạp cao màu be sữa hoặc trắng ngà. Giày: Giày da sục bít mũi màu nâu espresso. Phụ kiện: Túi kẹp nách da mềm tối giản, vòng tay kim loại vàng hồng bản mảnh."
+                }
+            ]
+        }
+    },
+    "ao_tac": {
+        "nu": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Hồng Trà / Hồng Đất (Dusty Rosewood)",
+                    "cong_thuc_goi_y": "Quần: Quần lụa ống suông rộng cạp cao màu trắng kem rủ nhẹ nhàng. Giày: Giày cao gót mũi nhọn gót vuông màu be sữa hoặc trắng ngà. Phụ kiện & Trang sức: Khuyên tai nụ ngọc trai, kẹp tóc ngọc trai bản nhỏ, túi xách tay mini đính ngọc trai hoặc cườm, nhẫn kim loại mảnh thiết kế tối giản."
+                },
+                {
+                    "mau_sac": "Vàng Mỡ Gà Đậm (Warm Amber Silk)",
+                    "cong_thuc_goi_y": "Quần: Quần tây ống suông cạp cao dập ly màu be ấm. Giày: Giày sục (Mules) bít mũi da trơn màu trắng/kem. Phụ kiện & Trang sức: Túi mây tre đan viền bọc da nâu, khuyên tai nụ đá nhỏ, đồng hồ mặt tròn nhỏ dây da thanh lịch, trâm cài kim loại trơn thanh mảnh."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Đỏ Hồng Ngọc (Deep Ruby / Thạch Lựu)",
+                    "cong_thuc_goi_y": "Quần: Quần tây hoặc lụa cạp cao ống rộng màu đen tuyền để tôn vẻ quyền quý. Giày: Giày cao gót mũi nhọn gót nhọn màu đen bóng hoặc đỏ mận. Phụ kiện & Trang sức: Khuyên tai sợi mảnh dáng dài thả nhẹ xuống cổ áo, túi cầm tay dạng hộp cứng viền kim loại, kẹp kim loại uốn lượn gọn gàng ở búi tóc."
+                },
+                {
+                    "mau_sac": "Xanh Lam Cổ (Classic Indigo Silk)",
+                    "cong_thuc_goi_y": "Quần: Quần lụa ống suông rộng cạp cao màu trắng tinh khôi (tạo nét thanh nhã kinh điển). Giày: Giày cao gót mũi nhọn gót vuông màu kem hoặc sục Mules bít mũi màu trắng. Phụ kiện & Trang sức: Nhẫn ngọc bích bản trơn trên ngón tay, túi da trơn tối giản màu trắng ngà, trâm kim loại bạc trơn cài tóc."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Tím Tử Đinh Hương Khói (Smoky Violet)",
+                    "cong_thuc_goi_y": "Quần: Quần âu ống suông cạp cao màu đen dập ly đứng. Giày: Giày sục Mules bít mũi mũi nhọn màu đen da lì. Phụ kiện & Trang sức: Túi cầm tay dạng hộp da đen tối giản, khuyên tai kim loại dáng dài dạng sợi mảnh, đồng hồ dây kim loại bạc mặt vuông siêu nhỏ"
+                },
+                {
+                    "mau_sac": "Rêu Phong Trầm (Antique Moss)",
+                    "cong_thuc_goi_y": "Quần: Quần suông cạp cao màu be xám hoặc trắng ngà. Giày: Giày cao gót mũi nhọn màu nude/be nhạt. Phụ kiện & Trang sức: Túi mây tre đan bọc da phong cách mộc mạc, khuyên tai nụ đính đá phong thủy/ngọc thạch nhỏ, trâm cài tóc kim loại trơn tối giản."
+                }
+            ]
+        },
+        "nam": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Lam Ghi Sáng (Slate Silver)",
+                    "cong_thuc_goi_y": "Quần: Quần tây ống suông cạp cao màu trắng hoặc be nhạt. Giày: Giày sục (Mules) bít mũi bằng da màu trắng ngà hoặc xám tro. Phụ kiện: Đồng hồ kim loại thanh mảnh mặt chữ nhật nhỏ, túi da trơn tối giản màu xám/đen cầm tay."
+                },
+                {
+                    "mau_sac": "Be Khói Trầm (Muted Sandstone)",
+                    "cong_thuc_goi_y": "Quần: Quần âu ống suông rộng màu đen hoặc be đậm (phối ton-sur-ton chuyển sắc). Giày: Giày sục Mules bít mũi màu nâu da bò/nâu chocolate. Phụ kiện: Túi mây tre đan bọc da cao cấp, nhẫn ngọc bích bản trơn tạo điểm nhấn ở bàn tay khi buông tà thụng."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Xanh Cổ Vịt Đậm (Imperial Teal)",
+                    "cong_thuc_goi_y": "Quần: Quần tây ống suông cạp cao màu trắng ngà hoặc xám tro. Giày: Giày da Mules bít mũi màu đen bóng. Phụ kiện: Khuyên tai kim loại nụ nhỏ (nếu có bấm tai), đồng hồ mặt tròn dây da đen cổ điển, túi cầm tay dạng hộp da cứng."
+                },
+                {
+                    "mau_sac": "Nâu Trầm Cánh Gián (Deep Amber Brown)",
+                    "cong_thuc_goi_y": "Quần: Quần suông cạp cao màu be sáng hoặc trắng tinh. Giày: Giày sục Mules bít mũi màu nâu đậm đồng điệu với áo. Phụ kiện: Nhẫn kim loại thiết kế hình học tối giản, túi xách tay mini da trơn màu nâu đen."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Đen Mực Khói (Ink Black / Noir)",
+                    "cong_thuc_goi_y": "Quần: Quần tây ống suông cạp cao màu trắng tinh khôi (tạo hiệu ứng Monochrome đen - trắng đầy quyền lực). Giày: Giày sục Mules bít mũi da bóng màu đen hoặc Loafer mũi vuông. Phụ kiện: Đồng hồ kim loại bạc bản nhỏ, túi hộp cứng cầm tay bằng da đen toàn phần, nhẫn kim loại mảnh."
+                },
+                {
+                    "mau_sac": "Rêu Rừng Sâu (Deep Forest Moss)",
+                    "cong_thuc_goi_y": "Quần: Quần âu ống rộng cạp cao màu đen dập ly đứng. Giày: Giày da bít mũi màu đen da sần hoặc nâu espresso. Phụ kiện: Túi mây tre đan viền da đen hoặc túi da trơn tối giản xách tay, nhẫn ngọc bích xanh thẫm."
+                }
+            ]
+        }
+    },
+    "ao_nhat_binh": {
+        "nu": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Xanh dương (Blue)",
+                    "cong_thuc_goi_y": "Quần/Váy: Quần lụa ống suông rộng cạp cao màu trắng tinh khôi, tạo sự mềm mại cân bằng sắc xanh đậm.   Giày dép: Giày cao gót mũi nhọn bít mũi màu trắng hoặc nude.Phụ kiện & Trang sức: Khuyên tai nụ ngọc trai nhỏ, nhẫn ngọc bản trơn thanh nhã, ví cầm tay nhỏ dạng hộp màu trắng ngà bằng da trơn.Tóc: Xõa tự nhiên hoặc búi thấp cài trâm bạc trơn tối giản."
+                },
+                {
+                    "mau_sac": "Đỏ (Red)",
+                    "cong_thuc_goi_y": "Quần/Váy: Chân váy dập ly mềm mại màu be sáng hoặc trắng kem để tiết chế độ rực của sắc đỏ.   Giày dép: Giày cao gót mũi nhọn bít mũi màu nude tiệp màu da, giúp tôn dáng thanh thoát.Phụ kiện & Trang sức: Khuyên tai nụ đá sáng nhỏ, nhẫn ngọc bích bản trơn nhẹ nhàng, túi xách tay nhỏ bằng da trơn màu trắng.Tóc: Búi lơi thấp, điểm xuyết một chiếc trâm cài tóc bằng vàng mảnh."
+                },
+                {
+                    "mau_sac": "Cam (Orange)",
+                    "cong_thuc_goi_y": "Quần/Váy: Quần lụa hoặc quần âu ống suông cạp cao màu trắng/kem sữa (làm dịu sắc cam ấm).   Giày dép: Giày cao gót mũi nhọn màu nude hoặc giày đế xuồng êm ái màu be.Phụ kiện & Trang sức: Khuyên tai ngọc trai hạt nhỏ, ví cầm tay mini da trơn màu trắng ngà, nhẫn trơn bản nhỏ.Tóc: Tóc uốn sóng nhẹ tự nhiên, kẹp trâm vàng mảnh."
+                },
+                {
+                    "mau_sac": "Tím (Purple)",
+                    "cong_thuc_goi_y": "Quần/Váy: Chân váy dập ly dáng dài màu trắng tinh hoặc quần lụa suông rộng màu be ngọc trai (tôn trọn nét thơ mộng xứ Huế của màu tím).   Giày dép: Giày cao gót mũi nhọn bít mũi màu trắng hoặc nude nhạt.Phụ kiện & Trang sức: Khuyên tai nụ ngọc trai giọt nước, nhẫn ngọc thanh mảnh, túi xách tay nhỏ màu trắng sữa.Tóc: Tóc xõa buông lơi cài trâm bạc đính ngọc trai nhỏ."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Xanh dương (Blue)",
+                    "cong_thuc_goi_y": "Quần/Váy: Chân váy dập ly màu xanh thẫm (ăn nhập với dải viền thủy ba dưới gấu) hoặc màu trắng ngà.   Giày dép: Giày cao gót mũi nhọn bít mũi màu đen da mờ hoặc giày đế xuồng bọc cói/da nhã nhặn.Phụ kiện & Trang sức: Mấn cách tân trơn màu xanh lam đậm hoặc nhung đen, khuyên tai sợi kim loại mảnh ngắn màu bạc, clutch hộp cứng bọc nhung khảm trai nhẹ nhàng.Tóc: Búi tóc gọn gàng đội mấn hoặc cài trâm bạc họa tiết cung đình cổ điển."
+                },
+                {
+                    "mau_sac": "Đỏ (Red)",
+                    "cong_thuc_goi_y": "Quần/Váy: Chân váy dập ly màu đỏ rượu hoặc quần lụa ống suông rộng màu đen truyền thống. Giày dép: Giày cao gót bít mũi màu đỏ rượu đồng điệu hoặc đen nhung sang trọng. Phụ kiện & Trang sức: Mấn cách tân nhung đỏ trơn, khuyên tai nụ ngọc trai cao cấp, clutch cầm tay dạng hộp vuông vắn bọc vải nhung đính ngọc/cườm. Tóc: Búi tròn cao đội mấn nhung phẳng phiu."
+                },
+                {
+                    "mau_sac": "Cam (Orange)",
+                    "cong_thuc_goi_y": "Quần/Váy: Chân váy dập ly màu be vàng hoặc màu nâu đất cổ điển (hòa sắc đất - lửa cung đình). Giày dép: Giày cao gót mũi nhọn gót vuông bít mũi màu nâu hoặc nude trầm. Phụ kiện & Trang sức: Mấn cách tân màu vàng đồng/cam đất trơn, clutch hộp cứng bọc gấm hoặc khảm trai, vòng tay kim loại mạ vàng thanh mảnh. Tóc: Búi tóc cổ điển kết hợp trâm vàng cài ngang."
+                },
+                {
+                    "mau_sac": "Tím (Purple)",
+                    "cong_thuc_goi_y": "Quần/Váy: Chân váy dập ly màu tím than trầm hoặc quần lụa đen rủ mềm. Giày dép: Giày cao gót mũi nhọn màu đen nhung hoặc đỏ rượu thẫm. Phụ kiện & Trang sức: Mấn cách tân bọc nhung tím hoa cà trơn màu, clutch dạng hộp cứng khảm trai nhẹ nhàng, đồng hồ dây da mảnh thanh lịch. Tóc: Búi tóc thấp cài trâm bạc trơn, đội mấn ngay ngắn."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Xanh dương (Blue)",
+                    "cong_thuc_goi_y": "Quần/Váy: Quần âu ống suông cạp cao màu đen dập ly đứng, có thể mặc buông mở tà áo khoác ngoài (giống cách diện trong ảnh mẫu).   Giày dép: Giày cao gót mũi nhọn màu đỏ rượu (tương phản mạnh mẽ với nền xanh lam và ăn nhập dải ngũ sắc).   Phụ kiện & Trang sức: Clutch dáng hộp vuông vắn đính đá/kim loại sáng, đồng hồ kim loại bạc bản thanh mảnh, nhẫn trơn bản nhỏ xếp lớp (layering).Tóc: Buộc nửa đầu cá tính cài trâm kim loại góc cạnh, hiện đại."
+                },
+                {
+                    "mau_sac": "Đỏ (Red)",
+                    "cong_thuc_goi_y": "Quần/Váy: Quần tây ống suông rộng cạp cao màu đen tuyền đứng phom, khoác hờ áo Nhật Bình đỏ bên ngoài.   Giày dép: Giày cao gót mũi nhọn bít mũi màu đen bóng có đinh tán hoặc chi tiết kim loại góc cạnh.Phụ kiện & Trang sức: Ví cầm tay dáng hộp cứng bọc kim loại/khảm xà cừ, đồng hồ kim loại thanh mảnh, khuyên tai kim loại sợi mảnh vuốt sắc sảo.Tóc: Tóc búi slick-back vuốt ngược mượt mà cài trâm vàng trơn tối giản."
+                },
+                {
+                    "mau_sac": "Cam (Orange)",
+                    "cong_thuc_goi_y": "Cách mặc & Quần: Mặc khoác mở tà tự do bên ngoài áo thun mock-neck trắng, kết hợp cùng quần âu cạp cao màu xanh dương cobalt/denim (cặp màu bổ túc tương phản cam - xanh cực kỳ hút mắt, đồng điệu với hoa văn thủy ba của áo).   Giày dép: Giày cao gót bít mũi màu đen (hoặc ankle boots da đen gót vuông giống mẫu).   Phụ kiện & Trang sức: Dây chuyền kim loại sợi mảnh xếp tầng, khuyên tai sợi kim loại mảnh và ngắn, ví cầm tay dáng hộp vuông bằng da đen tối giản, nhẫn kim loại hình học.   Tóc: Buộc lửng nửa đầu gọn gàng, để lộ gương mặt sắc nét."
+                },
+                {
+                    "mau_sac": "Tím (Purple)",
+                    "cong_thuc_goi_y": "Quần/Váy: Quần âu ống suông cạp cao màu đen tuyền dập ly sắc sảo. Giày dép: Giày cao gót mũi nhọn bít mũi màu đen bóng hoặc metallic ánh bạc. Phụ kiện & Trang sức: Ví cầm tay dáng hộp vuông vắn bằng da bóng đen, khuyên tai kim loại dạng sợi mảnh thả dài, nhẫn kim loại thiết kế tối giản. Tóc: Búi củ tỏi cao hiện đại, cố định bằng 2 trâm kim loại bạc trơn đan chéo."
+                }
+            ]
+        }
+    },
+    "mang_bao_trieu_nguyen": {
+        "nam": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Hoàng kim",
+                    "cong_thuc_goi_y": "Lớp trong: Áo len cổ lọ mỏng dệt sợi len mịn màu nâu hạt dẻ nhạt hoặc be đậm (tiết chế bớt độ chói của vàng kim).   Quần: Quần âu ống suông cạp cao màu trắng kem hoặc be sữa dập ly nhẹ.Giày: Chelsea boots da lộn màu nâu sáng (sand suede/camel).Phụ kiện: Đồng hồ dây da nâu tối giản mặt tròn, nhẫn bạc bản mảnh trơn."
+                },
+                {
+                    "mau_sac": "Đỏ rượu",
+                    "cong_thuc_goi_y": "Lớp trong: Áo len cổ lọ dệt kim màu xám khói nhạt (light grey) hoặc xám lông chuột.Quần: Quần âu ống suông màu ghi xám tro, tạo độ chuyển sắc dịu mắt với sắc đỏ trầm.   Giày: Chelsea boots da lộn màu xám tro hoặc nâu tro nhạt.Phụ kiện: Đồng hồ kim loại bạc dây nhuyễn, trâm/ghim cài ve áo kim loại hình học tối giản."
+                },
+                {
+                    "mau_sac": "Tím",
+                    "cong_thuc_goi_y": "Lớp trong: Áo len cổ lọ màu trắng ngà hoặc xám tro rất nhạt để làm dịu độ đậm của nền tím.   Quần: Quần âu ống suông cạp cao màu be xám (greige) rủ nhẹ.Giày: Chelsea boots da lộn màu be khói hoặc xám sáng.Phụ kiện: Đồng hồ dây kim loại bản nhỏ, nhẫn bạc trơn tối giản."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Hoàng kim",
+                    "cong_thuc_goi_y": "Lớp trong: Áo len cổ lọ màu nâu đất hoặc cà phê đậm (espresso). Quần: Quần âu ống suông màu nâu chocolate hoặc xám ấm, tạo cảm giác chuyển màu hoàng tộc hoài niệm. Giày: Chelsea boots da lộn màu nâu đậm cổ điển. Phụ kiện: Nhẫn ngọc bích bản trơn tạo điểm nhấn vương giả ở bàn tay, túi clutch da trơn tối giản màu nâu gụ."
+                },
+                {
+                    "mau_sac": "Đỏ rượu",
+                    "cong_thuc_goi_y": "Lớp trong: Áo len cổ lọ màu đỏ đun hoặc màu mận chín trầm hơn sắc áo một tông (tone-sur-tone chuyển sắc). Quần: Quần âu ống suông dập ly đứng màu xám than (charcoal). Giày: Chelsea boots da lộn màu nâu đỏ (oxblood suede) hoặc nâu sẫm. Phụ kiện: Nhẫn trơn bản nhỏ mạ vàng cổ, ví clutch cầm tay dáng hộp cứng bọc da hoặc nhung đen."
+                },
+                {
+                    "mau_sac": "Tím",
+                    "cong_thuc_goi_y": "Lớp trong: Áo len cổ lọ màu xanh than hoặc xanh chàm sẫm (ăn nhập với dải thêu lam/thủy ba bên dưới).   Quần: Quần âu ống suông màu xanh navy đậm hoặc đen nhung.Giày: Chelsea boots da lộn màu xanh đen hoặc xám than đậm.Phụ kiện: Nhẫn ngọc thạch hoặc ngọc bích xanh thẫm, túi xách hộp cầm tay da lì cổ điển."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Hoàng kim",
+                    "cong_thuc_goi_y": "Lớp trong: Áo len cổ lọ màu đen tuyền dệt đanh sợi, tạo nền tối tương phản tuyệt đối để làm bừng sáng hoa văn thêu vàng.   Quần: Quần âu ống suông rộng màu đen tuyền cạp cao, xếp ly sâu.Giày: Chelsea boots da lộn màu đen tuyền gầm dày, mũi nhọn nhẹ.Phụ kiện: Kính mát gọng chữ nhật viền kim loại tối màu, dây chuyền kim loại mảnh lồng ẩn dưới cổ lọ."
+                },
+                {
+                    "mau_sac": "Đỏ rượu",
+                    "cong_thuc_goi_y": "Lớp trong: Áo len cổ lọ màu đen tuyền ôm sát cổ. Quần: Quần âu ống suông rộng phủ gót màu đen dập ly sắc lẹm, khoác mở hoàn toàn tà Mãng bào để lộ phom dáng hiện đại bên trong. Giày: Chelsea boots da lộn màu đen có gót vát nhẹ cá tính. Phụ kiện: Khuyên tai kim loại mảnh sợi ngắn (nếu có bấm tai), đồng hồ mặt vuông dây kim loại đen hoặc bạc."
+                },
+                {
+                    "mau_sac": "Tím",
+                    "cong_thuc_goi_y": "Lớp trong: Áo len cổ lọ màu đen tuyền cổ cao ôm khít, kéo thẳng đứng. Quần: Quần âu ống suông rộng cạp cao dập ly màu đen tuyền. Giày: Chelsea boots da lộn màu đen mũi vuông sắc nét. Phụ kiện: Clutch cầm tay dạng hộp vuông vắn màu đen đính chi tiết kim loại góc cạnh, kính mát đen tối giản."
+                }
+            ]
+        }
+    },
+    "phuong_bao_trieu_nguyen": {
+        "nu": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Vàng cam",
+                    "cong_thuc_goi_y": "Đầm mặc bên trong: Đầm lụa trơn dáng dài qua bắp chân, màu trắng tuyết bạch (pure white) hoặc trắng ngà, cổ tròn thanh mảnh hoặc cổ thuyền hạ nhẹ, ôm dáng suôn rủ tự nhiên.Cách mặc áo khoác: Khoác hờ Phượng bào trên hai vai hoặc buông tà mở tự do không cài nút trước, để lộ mảng lụa trắng chuyển động bên trong.   Giày cao gót: Giày cao gót mũi nhọn bít mũi màu nude tiệp da hoặc trắng kem, gót thanh 7cm.Trang sức & Phụ kiện:Dây chuyền kim loại mảnh sợi màu bạc hoặc vàng trắng đính mặt ngọc trai nhỏ.Khuyên tai nụ ngọc trai hoặc sợi kim loại thanh mảnh buông nhẹ.Túi cầm tay/clutch mini da trơn màu trắng sữa form mềm tối giản.Kiểu tóc: Búi lơi thấp tự nhiên sau gáy, điểm xuyết một chiếc trâm kim loại bạc trơn mảnh."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Vàng cam",
+                    "cong_thuc_goi_y": "Đầm mặc bên trong: Đầm lụa trơn dáng dài chấm mắt cá màu be cát đậm (champagne gold) hoặc màu nâu trà sữa ánh satin nhẹ, cổ yếm cách điệu hoặc cổ trụ thấp ôm sát xương quai xanh.Cách mặc áo khoác: Mặc xỏ tay Phượng bào nhưng để mở tà tự nhiên, tay áo thụng rủ xuống tự do khoe trọn hoa văn phượng thêu kim tuyến.   Giày cao gót: Giày cao gót mũi nhọn bít mũi màu nâu da bò trầm hoặc đỏ rượu thẫm (maroon/oxblood) bằng chất liệu da lộn hoặc satin bóng mờ.Trang sức & Phụ kiện:Vòng tay kim loại bản mảnh mạ vàng cổ hoặc nhẫn ngọc bích/hổ phách bản trơn trên ngón tay.Khuyên tai kim loại dáng thả sợi ngắn đính đá phong thủy màu hổ phách ấm.Ví cầm tay/clutch dáng hộp cứng vuông vắn bọc da trơn màu nâu gụ hoặc khảm xà cừ/trai nhẹ nhàng.Kiểu tóc: Búi tóc tròn kiểu hoàng tộc cổ điển, cài trâm kim loại mạ vàng họa tiết mây uốn lượn."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Vàng cam",
+                    "cong_thuc_goi_y": "Đầm mặc bên trong: Đầm slip dress lụa satin màu đen tuyền (pitch black) ôm nhẹ cơ thể, dài ngang bắp chân với đường xẻ tà bên hông tinh tế.Cách mặc áo khoác: Khoác Phượng bào mở toang hoàn toàn, buông thả tay áo rộng tạo khối hình học ấn tượng đối lập với phom dáng ôm gọn của chiếc đầm đen bên trong.   Giày cao gót: Giày cao gót mũi nhọn bít mũi màu đen bóng (patent leather) với phần gót nhọn hoắt kim loại sắc sảo.Trang sức & Phụ kiện:Khuyên tai kim loại dạng sợi mảnh dài góc cạnh (geometric) mạ vàng gold sáng bóng thả dài ngang vai.Nhẫn kim loại mảnh thiết kế tối giản đeo ngón trỏ hoặc ngón cái.Clutch dáng hộp vuông cứng cáp bọc da đen bóng có viền kim loại vàng sắc lạnh.Kiểu tóc: Tóc vuốt mượt ép sát (slick-back) buộc đuôi ngựa thấp hoặc búi củ tỏi cao sắc sảo, không dùng phụ kiện tóc để dồn toàn bộ sự chú ý vào đường nét gương mặt và cổ áo Phượng bào."
+                }
+            ]
+        }
+    },
+    "ao_giao_linh": {
+        "nam": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Trắng Ngọc Trai (Pearl Ivory)",
+                    "cong_thuc_goi_y": "Quần: Quần âu ống suông rộng cạp cao màu be sáng (light beige/oatmeal) hoặc xám khói nhạt dập ly nhẹ. Giày: Chunky sneaker trắng ngà toàn phần (như Nike Air Force 1 all-white hoặc Alexander McQueen) giữ nét sạch sẽ, liền mạch. Túi xách: Túi đeo chéo nhỏ (crossbody bag) chất liệu canvas thô hoặc da mềm màu kem ngà. Phụ kiện & Chi tiết: Vòng tay chuỗi hạt gỗ mộc hoặc dây da thanh mảnh; vạt cổ áo trong giữ nguyên màu trắng kem viền cổ tạo chiều sâu tinh tế."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Trắng Ngọc Trai (Pearl Ivory)",
+                    "cong_thuc_goi_y": "Quần: Quần ống rộng cạp cao màu nâu hạt dẻ, be cát đậm hoặc xám tro bằng chất liệu đũi/linen tự nhiên. Giày: Chunky sneaker có phối mảng da lộn màu retro (như New Balance 550, Nike Killshot hoặc Samba phối da lộn nâu/be) đi cùng tất trắng cổ cao. Túi xách: Túi đeo chéo nhỏ dạng bao thư (envelope pouch) bằng da sáp màu nâu cánh gián. Phụ kiện & Chi tiết: Nhẫn ngọc bích bản trơn trên ngón tay, trâm cài kim loại bạc trơn cố định búi tóc củ tỏi (nếu có để tóc dài) hoặc kính gọng tròn mắt mảnh cổ điển."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Trắng Ngọc Trai (Pearl Ivory)",
+                    "cong_thuc_goi_y": "Quần: Quần tây ống rộng xếp ly sâu màu đen tuyền cạp cao, phom đứng đanh vải (heavyweight wool/cotton blend). Giày: Chunky sneaker đế hầm hố, gầm cao răng cưa (Converse Run Star Hike đen/trắng, Balenciaga Triple S hoặc Eytys halo). Túi xách: Túi đeo chéo nhỏ chất liệu nylon chống nước/cordura màu đen phong cách techwear với khóa kim loại bấm sắc lạnh. Phụ kiện & Chi tiết: Kính mát gọng chữ nhật viền bạc tối giản, dây chuyền kim loại mảnh lồng hờ trong cổ chữ \"y\"."
+                }
+            ]
+        },
+        "nu": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Trắng Ngọc Trai (Pearl Ivory)",
+                    "cong_thuc_goi_y": "Váy/Quần: Chân váy xếp ly dáng dài quét mắt cá màu trắng tuyết (monochrome all-white) hoặc màu hồng phấn/xanh lơ pastel rủ nhẹ bay bổng. Giày: Chunky sneaker trắng phom bánh mì bo tròn mềm mại (Fila Disruptor trắng hoặc MLB Chunky Liner trắng viền pastel). Túi xách: Túi đeo chéo mini dạng hộp tròn hoặc túi da chần bông mềm màu trắng sữa, quai xích kim loại sợi mảnh. Phụ kiện & Tóc: Khuyên tai nụ ngọc trai nhỏ, kẹp tóc ngọc trai hoặc kẹp nơ lụa mảnh; tóc buông xõa uốn lọn nhẹ tự nhiên."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Trắng Ngọc Trai (Pearl Ivory)",
+                    "cong_thuc_goi_y": "Váy/Quần: Chân váy xếp ly dáng dài màu đỏ rượu (maroon), xanh chàm cổ hoặc màu đen thâm truyền thống (thay cho váy quây xưa). Giày: Chunky sneaker cổ điển tone-sur-tone trắng - kem (Reebok Club C 85 hoặc Puma Palermo đế gum). Túi xách: Túi đeo chéo nhỏ bằng gấm dệt hoa chìm hoặc da lộn màu nâu đất/đỏ đun với khóa cài kim loại mạ đồng cổ. Phụ kiện & Tóc: Vòng tay ngọc thạch hoặc lắc bạc sợi mảnh, trâm cài tóc kim loại mạ vàng họa tiết mây cuộn cổ điển cài trên búi tóc thấp."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Trắng Ngọc Trai (Pearl Ivory)",
+                    "cong_thuc_goi_y": "Váy/Quần: Quần âu ống suông rộng cạp cao màu đen dập ly sắc lẹm hoặc chân váy xếp ly dáng dài màu đen tuyền chất liệu vải dù/da bóng nhẹ. Giày: Chunky sneaker đế bánh mì cực dày (Converse Run Star Motion hoặc Nike AF1 Shadow) đi cùng tất trắng cổ cao kéo thẳng. Túi xách: Túi đeo chéo mini da bóng (patent leather) màu bạc metallic hoặc đen, đeo vắt chéo ngang ngực tạo điểm nhấn hiện đại cắt qua vạt chữ \"y\". Phụ kiện & Tóc: Kính mát gọng chữ nhật đen viền kim loại, khuyên tai khoen tròn kim loại bản mảnh, tóc tết bím đôi cá tính hoặc búi cao sắc sảo."
+                }
+            ]
+        }
+    },
+    "ao_oi_kham": {
+        "nam": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Đen (Black)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo thun cotton cổ tròn trơn phom regular-fit màu trắng ngà hoặc be sáng. Quần: Quần jeans ống suông rộng màu xanh nhạt (light wash blue) hoặc trắng ngà, cạp cao vừa phải. Phụ kiện & Mũ: Mũ bucket: Mũ bucket vải canvas trơn màu be hoặc trắng kem. Vòng cổ/Choker: Vòng cổ chuỗi hạt gỗ mộc hoặc dây da lộn màu nâu đất sợi mảnh sát chân cổ. Túi xách: Túi tote canvas dày dặn màu kem sữa in họa tiết typo hoặc tranh thủy mặc tối giản. Giày dép: Sneaker retro gầm thấp (như Adidas Samba, Converse Chuck 70 trắng ngà)."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Đen (Black)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo thun cổ tròn chất liệu đũi/cotton thô màu nâu cát cháy hoặc xám tro. Quần: Quần jeans ống rộng phom đứng màu xanh chàm đậm (raw/indigo denim) hoặc xám than nhuốm màu vintage. Phụ kiện & Mũ: Mũ bucket: Mũ bucket vải denim sờn nhẹ hoặc vải kaki màu xanh rêu/nâu đất. Vòng cổ/Choker: Vòng choker da màu nâu đậm có mặt kim loại đồng cổ nhỏ hoặc mặt ngọc bích trơn. Túi xách: Túi tote canvas màu nâu sáp hoặc túi vải bố thô mộc. Giày dép: Giày da Loafer đế bệt hoặc giày vải thủ công cổ điển."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Đen (Black)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo thun oversize màu đen tuyền cổ bo đanh dệt dày dặn, sơ vin vạt trước hoặc buông tự nhiên. Quần: Quần jeans ống thụng rộng thùng thình (wide-leg baggy) màu đen giặt bạc (washed black) có nếp gấp hoặc chi tiết rách nhẹ. Phụ kiện & Mũ: Mũ bucket: Mũ bucket vải dù chống nước (nylon) màu đen tuyền có dây rút cá tính. Vòng cổ/Choker: Vòng choker da bản vừa đính khuyên kim loại bạc hoặc mắt xích kim loại sắc lạnh. Túi xách: Túi tote canvas đen phối chi tiết quai dù, in graphic tương phản trắng - đen bản lớn. Giày dép: Chunky sneaker đế hầm hố gầm cao hoặc combat boots da đen."
+                }
+            ]
+        },
+        "nu": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Đen (Black)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo crop-top thun gân ôm sát dáng cổ yếm hoặc cổ tròn màu trắng tuyết/hồng phấn. Quần: Quần jeans cạp cao ống suông rộng màu xanh sáng (baby blue denim), tôn vòng eo thon gọn. Phụ kiện & Mũ: Mũ bucket: Mũ bucket vành tròn nhỏ bằng len dệt mềm hoặc vải canvas màu kem/be. Vòng cổ/Choker: Vòng choker ngọc trai hạt nhỏ li ti hoặc sợi kim loại mảnh ánh bạc ôm sát cổ. Túi xách: Túi tote canvas vải mềm in hoa cỏ nhỏ hoặc typo thanh lịch. Giày dép: Giày sneaker trắng đế bánh mì hoặc búp bê Mary Jane đế bệt."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Đen (Black)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo thun trơn cổ vuông ôm sát màu be cát hoặc vàng bơ cổ điển. Quần: Quần jeans ống loe rộng cạp cao màu xanh denim cổ điển (classic 90s blue) hoặc be đất. Phụ kiện & Mũ: Mũ bucket: Mũ bucket vải nhung tăm (corduroy) màu nâu caramel hoặc be đậm. Vòng cổ/Choker: Vòng choker bằng nhung đen bản nhỏ có mặt đá nhỏ/ngọc giọt nước. Túi xách: Túi tote canvas kết hợp mảng phối da nâu phong cách vintage. Giày dép: Giày da búp bê mũi vuông gót thấp hoặc giày sục Mules bít mũi màu nâu."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Đen (Black)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo crop-top đen trơn cắt cúp sắc lẹm hoặc baby tee đen ôm sát khoe eo. Quần: Quần jeans túi hộp ống rộng (cargo jeans) hoặc baggy jeans cạp trễ/cạp cao màu đen khói (faded grey/black). Phụ kiện & Mũ: Mũ bucket: Mũ bucket da bóng (leather bucket) màu đen hoặc đính khuyên kim loại. Vòng cổ/Choker: Vòng choker da đen đính chi tiết kim loại góc cạnh hoặc choker xích bạc lồng nhiều lớp. Túi xách: Túi tote canvas đen phối quai xích kim loại hoặc in graphic trừu tượng đậm chất ngầm. Giày dép: Chunky sneaker đế siêu dày (như Run Star Hike/Motion) hoặc ankle boots da đen mũi nhọn."
+                }
+            ]
+        }
+    },
+    "ao_vien_linh": {
+        "nam": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Xanh (Blue)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo sơ mi cổ bẻ (cổ nhọn hoặc cổ cài nút button-down) màu trắng tinh khôi hoặc xanh pastel nhạt (baby blue), để ve cổ bẻ thẳng thớm nhô ra ngoài viền cổ tròn Viên lĩnh.   Quần: Quần jeans ống đứng (straight-fit) màu trắng kem hoặc xanh denim sáng giặt nhẹ (light-wash denim).Giày loafers: Penny Loafers bằng da trơn màu nâu nhạt (tan/camel) hoặc da bóng mờ, đi kèm tất dệt trắng cổ thấp gọn gàng.Phụ kiện đi kèm: Túi tote canvas hoặc túi da mềm xách tay màu be, kính mắt gọng kim loại tròn thanh mảnh, đồng hồ dây da cổ điển."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Xanh (Blue)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo sơ mi cổ bẻ màu be cát hoặc vàng bơ nhạt chất vải oxford/chambray.Quần: Quần jeans ống đứng màu xanh chàm đậm (raw/indigo denim) hoặc màu nâu be vintage, gấu quần xắn một nếp gọn gàng.Giày loafers: Tassel Loafers (giày lười có tua rua) bằng da lộn hoặc da bóng màu nâu chocolate/đỏ rượu (oxblood - ăn nhập với lớp lót tay áo), đi cùng tất trắng dệt gân cổ cao.   Phụ kiện đi kèm: Túi cặp táp/satchel da sáp màu nâu cánh gián, nhẫn ngọc bích bản trơn trên ngón tay, quạt giấy nan tre cầm tay."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Xanh (Blue)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo sơ mi đen tuyền cổ nhọn lớn (cổ kiểu thập niên 70) bẻ ra ngoài cổ tròn, hoặc sơ mi sọc pinstripe đen - trắng. Quần: Quần jeans ống đứng cạp cao màu đen giặt xám chì (washed black/grey denim) ống suông đứng đanh phom. Giày loafers: Chunky Loafers đế răng cưa dày dặn (lug-sole loafers) bằng da bóng màu đen tuyền. Phụ kiện đi kèm: Khuyên tai kim loại nhỏ (nếu có), kính mát gọng vuông đen tối giản, túi da form hộp cứng cáp xách tay."
+                }
+            ]
+        },
+        "nu": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Xanh (Blue)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo sơ mi cổ sen bẻ tròn (Peter Pan collar) hoặc sơ mi cổ bẻ nhỏ màu trắng tuyết/hồng phấn, viền cổ hé lộ xinh xắn trên cổ tròn của áo.   Quần: Quần jeans ống đứng cạp cao màu trắng hoặc xanh denim sáng, tôn dáng gọn gàng bên dưới tà áo rộng.   Giày loafers: Giày Loafers mũi tròn hoặc giày búp bê gót vuông thấp màu be sữa/nude đi kèm tất ren hoặc tất trắng gập cổ ngắn.Phụ kiện đi kèm: Kẹp tóc ngọc trai hoặc nơ lụa màu kem, túi xách mini da trơn màu trắng, đồng hồ mặt nhỏ dây kim loại thanh mảnh."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Xanh (Blue)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo sơ mi cổ bẻ vải lụa hoặc voan cát màu be kem, có cài thêm ghim cài kim loại nhỏ ở góc cổ áo. Quần: Quần jeans cạp cao ống đứng màu xanh cổ điển (classic 90s blue) không rách, ôm vừa vặn hông. Giày loafers: Horsebit Loafers (giày lười đai kim loại mạ vàng) màu nâu hạt dẻ hoặc đỏ rượu thẫm bằng chất liệu da lộn. Phụ kiện đi kèm: Túi xách dạng hộp vuông cầm tay bằng da trơn hoặc túi mây tre đan bọc da, trâm kim loại bạc trơn cài tóc, hoa tai nụ đá nhỏ hoặc ngọc trai."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Xanh (Blue)",
+                    "cong_thuc_goi_y": "Lớp trong: Áo sơ mi trắng cổ bẻ cứng cáp phom đứng thắt thêm cà vạt đen bản nhỏ (skinny tie) buông lửng, tạo điểm nhấn phá cách ngay nẹp ngực. Quần: Quần jeans ống đứng cạp cao màu đen tuyền dập nếp ly giữa ống sắc nét. Giày loafers: Chunky Loafers đế cao bánh mì da bóng viền chỉ nổi, phối cùng tất dệt trắng cao cổ kéo thẳng. Phụ kiện đi kèm: Kính mắt gọng chữ nhật viền kim loại bạc, nhẫn kim loại bản dẹt thiết kế tối giản, túi kẹp nách baguette bằng da đen bóng."
+                }
+            ]
+        }
+    },
+    "ao_tu_ien": {
+        "nam": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Đen (Black)",
+                    "cong_thuc_goi_y": "Quần: Quần linen ống suông rộng cạp chun/dây rút màu be sáng (oatmeal/ivory) hoặc màu trắng ngà. Độ rủ tự nhiên của vải lanh hòa nhịp hoàn hảo với độ bay của 4 vạt áo khi di chuyển.   Giày thể thao: Sneaker vải canvas gầm thấp, phom gọn gàng màu trắng ngà hoặc be nhạt (như Novesta Star Master, MUJI canvas sneakers hoặc Converse Chuck 70 Parchment).Phụ kiện: Túi đeo chéo mini vải đũi/cotton mộc màu be, nón cói vành cụp nhỏ hoặc kính râm gọng đồi mồi mỏng."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Đen (Black)",
+                    "cong_thuc_goi_y": "Quần: Quần linen form rộng màu nâu đất hoặc màu xanh rêu nhạt (sage green) dáng lửng chạm mắt cá chân, ống đứng suông thẳng. Giày thể thao: Sneaker retro phong cách cổ điển với chi tiết da lộn (như Adidas Samba/Gazelle phối màu be - nâu, hoặc Onitsuka Tiger Mexico 66 đế gum). Phụ kiện: Vòng tay chuỗi hạt gỗ mun/trầm hương, túi bao tử đeo chéo bằng vải bố thô (hemp/canvas), quạt nan tre nhỏ gài nhẹ bên hông khi dạo phố."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Đen (Black)",
+                    "cong_thuc_goi_y": "Quần: Quần short lửng chất liệu nylon dù hoặc linen pha cotton dày dặn, phom rộng dài ngang gối màu xám xi măng hoặc đen tuyền. Giày thể thao: Chunky running shoes hoặc giày trekking ngoài trời gầm bám răng cưa (như Salomon XT-6, Hoka Clifton, hoặc New Balance 1906R), phối cùng tất thể thao dệt gân màu trắng cổ cao qua mắt cá chân. Phụ kiện: Mũ lưỡi trai không cấu trúc (unstructured cap) hoặc mũ bucket chống nước màu xám đen, túi đeo chéo utilitarian nhiều ngăn khóa zip."
+                }
+            ]
+        },
+        "nu": {
+            "nhe_nhang": [
+                {
+                    "mau_sac": "Hồng Phấn Cánh Sen (Blush Peach)",
+                    "cong_thuc_goi_y": "Quần: Quần linen ống rộng quét đất màu trắng tuyết (wide-leg linen trousers), cạp cao ôm nhẹ vòng eo. Tà áo 4 vạt mở nhẹ khi bước đi để lộ lớp vải lanh trắng mềm mại bên trong.   Giày thể thao: Sneaker trắng tinh tối giản đế bằng (như Adidas Stan Smith, Puma Palermo trắng hoặc Keds da trắng).Phụ kiện: Kẹp càng cua kim loại bạc mảnh kẹp hờ mái tóc uốn lọn, túi xách đan mây/len crochet nhỏ nhắn xách tay, vòng cổ kim loại sợi mảnh ẩn hiện sau cổ viên lĩnh."
+                }
+            ],
+            "hoai_co": [
+                {
+                    "mau_sac": "Hồng Phấn Cánh Sen (Blush Peach)",
+                    "cong_thuc_goi_y": "Quần: Quần linen suông cạp cao màu be cát ấm (warm sand) hoặc màu nâu trà sữa nhạt, gấu quần buông tự nhiên. Giày thể thao: Giày thể thao retro phom thanh mảnh phối viền màu pastel (như Nike Killshot, New Balance 327 màu be/hồng đất). Phụ kiện: Băng đô vải linen/lụa màu be cài tóc, túi tote vải thô dệt thủ công thêu cành hoa nhỏ, vòng tay ngọc thạch hoặc bạc ta bản nhỏ."
+                }
+            ],
+            "ca_tinh": [
+                {
+                    "mau_sac": "Hồng Phấn Cánh Sen (Blush Peach)",
+                    "cong_thuc_goi_y": "Quần: Quần short lửng linen hoặc quần bermuda short ống suông rộng màu trắng ngà hoặc xám khói, độ dài chấm trên gối một chút (giúp lộ đôi chân năng động qua các khe xẻ vạt áo).   Giày thể thao: Giày sneaker bánh mì đế độn chunky (như MLB Boston Chunky, Nike Air Force 1 Shadow hoặc New Balance 530), đi kèm tất trắng cổ lửng xếp nhún nhẹ.Phụ kiện: Kính mát gọng chữ nhật viền trắng/hồng trong suốt, túi đeo chéo mini vải dù màu bạc metallic hoặc trắng sữa, tóc tết bím đuôi sam đôi tinh nghịch."
+                }
+            ]
+        }
+    }
+}

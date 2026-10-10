@@ -1,0 +1,8 @@
+{
+  "name": "Tam Tấu - Việt Phục Remix",
+  "description": "Khám phá sự giao thoa giữa truyền thống và hiện đại. Tự do sáng tạo, mix & match các trang phục truyền thống Việt Nam cùng Stylist AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

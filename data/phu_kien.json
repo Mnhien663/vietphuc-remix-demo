@@ -1,0 +1,344 @@
+{
+    "ao_mac_trong": {
+        "ao_co_lo": {
+            "ten": "Áo cổ lọ",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Y2K", "Hiện đại", "Cá tính"],
+            "mau_sac": ["Đen", "Trắng"],
+            "file_prefix": "ao_co_lo"
+        },
+        "ao_so_mi_co_tru": {
+            "ten": "Áo sơ mi cổ trụ",
+            "gioi_tinh": ["Nam"],
+            "style": ["Y2K", "Hiện đại", "Thanh lịch"],
+            "mau_sac": ["Đen", "Trắng"],
+            "file_prefix": "ao_so_mi_co_tru"
+        },
+        "ao_crop_top": {
+            "ten": "Áo Crop-top",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Năng động", "Đường phố"],
+            "mau_sac": ["Trắng", "Đen"],
+            "file_prefix": "ao_crop_top"
+        },
+        "ao_so_mi_co_be": {
+            "ten": "Áo sơ mi cổ bẻ",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Thanh lịch", "Công sở"],
+            "mau_sac": ["Trắng", "Xanh nhạt"],
+            "file_prefix": "ao_so_mi"
+        }
+    },
+
+    "ao_khoac": {
+        "ao_blazer": {
+            "ten": "Áo Blazer Oversize",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Y2K", "Hiện đại", "Thanh lịch"],
+            "mau_sac": ["Đen", "Trắng"],
+            "file_prefix": "ao_blazer"
+        }
+    },
+
+    "quan_vay": {
+        "quan_tay_ong_loe": {
+            "ten": "Quần tây ống loe",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Y2K", "Hiện đại", "Năng động"],
+            "mau_sac": ["Đen", "Trắng", "Be"],
+            "file_prefix": "quan_tay_ong_loe"
+        },
+        "quan_lua_ong_rong": {
+            "ten": "Quần lụa ống rộng",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Truyền thống", "Thanh lịch", "Cung đình"],
+            "mau_sac": ["Trắng", "Đen", "Nâu"],
+            "file_prefix": "quan_lua_ong_rong"
+        },
+        "quan_au_lung_ong_rong": {
+            "ten": "Quần âu lửng ống rộng",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Thanh lịch", "Năng động", "Mùa hè"],
+            "mau_sac": ["Trắng", "Kem", "Be", "Đen"],
+            "file_prefix": "quan_au_lung_ong_rong"
+        },
+        "quan_tay_ong_rong": {
+            "ten": "Quần tây ống rộng",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Truyền thống", "Cung đình", "Lễ hội", "Hiện đại", "Lịch lãm"],
+            "mau_sac": ["Trắng", "Đen", "Xám", "Be"],
+            "file_prefix": "quan_tay_ong_rong"
+        },
+        "chan_vay_xep_ly_dai": {
+            "ten": "Chân váy dập ly",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Thanh lịch"],
+            "mau_sac": ["Trắng", "Đen", "Đỏ"],
+            "file_prefix": "chan_vay_xep_ly_dai"
+        },
+        "dam_lua_tron": {
+            "ten": "Đầm lụa trơn dáng ôm",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Sang trọng", "Dạ hội"],
+            "mau_sac": ["Đen", "Trắng"],
+            "file_prefix": "dam_lua_tron"
+        },
+        "vay_quay_den": {
+            "ten": "Váy quây (Thường đụp)",
+            "gioi_tinh": ["Nữ", "Nam"],
+            "style": ["Truyền thống", "Bình dân", "Lý Trần"],
+            "mau_sac": ["Đen", "Nâu thâm"],
+            "file_prefix": "vay_quay"
+        },
+        "quan_jeans_ong_rong": {
+            "ten": "Quần jeans ống rộng",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Streetwear", "Y2K"],
+            "mau_sac": ["Xanh Denim", "Xanh nhạt", "Đen"],
+            "file_prefix": "quan_jeans_ong_rong"
+        },
+        "quan_linen_form_rong": {
+            "ten": "Quần linen form rộng",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Tối giản", "Thoải mái"],
+            "mau_sac": ["Be", "Nâu nhạt", "Trắng"],
+            "file_prefix": "quan_linen"
+        }
+    },
+
+    "giay_dep": {
+        "giay_converse": {
+            "ten": "Converse Run Star Hike",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Streetwear", "Y2K"],
+            "mau_sac": ["Đen"],
+            "file_prefix": "giay_converse"
+        },
+        "giay_af1": {
+            "ten": "Nike Air Force 1",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Streetwear", "Y2K"],
+            "mau_sac": ["Trắng"],
+            "file_prefix": "giay_af1"
+        },
+        "giay_loafer": {
+            "ten": "Giày da Loafer đế dày",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Thanh lịch", "Retro"],
+            "mau_sac": ["Đen", "Nâu"],
+            "file_prefix": "giay_loafer"
+        },
+        "guoc_moc": {
+            "ten": "Guốc mộc",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Truyền thống", "Bình dân"],
+            "mau_sac": ["Nâu"],
+            "file_prefix": "guoc_moc"
+        },
+        "giay_mules": {
+            "ten": "Giày sục (Mules) bít mũi",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Thanh lịch", "Tối giản"],
+            "mau_sac": ["Đen", "Be"],
+            "file_prefix": "giay_mules"
+        },
+        "giay_cao_got": {
+            "ten": "Giày cao gót mũi nhọn",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Sang trọng"],
+            "mau_sac": ["Đen", "Nude", "Trắng"],
+            "file_prefix": "giay_cao_got"
+        },
+        "giay_the_thao_de_bang": {
+            "ten": "Giày thể thao đế bằng",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Y2K", "Hiện đại", "Cá tính"],
+            "mau_sac": ["Đen", "Trắng"],
+            "file_prefix": "giay_the_thao_de_bang"
+        },
+        "giay_hia": {
+            "ten": "Giày Hia cung đình",
+            "gioi_tinh": ["Nam"],
+            "style": ["Truyền thống", "Cung đình", "Quan lại"],
+            "mau_sac": ["Đen"],
+            "file_prefix": "giay_hia"
+        },
+        "hai_theu_phuong": {
+            "ten": "Hài thêu phượng ngũ sắc",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Truyền thống", "Cung đình", "Hoàng tộc"],
+            "mau_sac": ["Đỏ", "Vàng"],
+            "file_prefix": "hai_theu_phuong"
+        },
+        "chelsea_boots": {
+            "ten": "Giày Chelsea Boots da lộn",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Quyền lực", "Lịch lãm"],
+            "mau_sac": ["Đen", "Nâu"],
+            "file_prefix": "chelsea_boots"
+        },
+        "giay_de_xuong": {
+            "ten": "Giày đế xuồng",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Nữ tính"],
+            "mau_sac": ["Be", "Đen"],
+            "file_prefix": "giay_de_xuong"
+        },
+        "dep_da_co": {
+            "ten": "Dép da",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Truyền thống", "Bình dân"],
+            "mau_sac": ["Nâu"],
+            "file_prefix": "dep_da"
+        }
+    },
+
+    "tui_xach": {
+        "tui_baguette": {
+            "ten": "Túi kẹp nách (Baguette bag)",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Y2K"],
+            "mau_sac": ["Đen", "Trắng"],
+            "file_prefix": "tui_baguette"
+        },
+        "tui_tote_canvas": {
+            "ten": "Túi Tote Canvas vuông",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Năng động"],
+            "mau_sac": ["Trắng", "Be"],
+            "file_prefix": "tui_tote_canvas"
+        },
+        "tui_may_tre_hop": {
+            "ten": "Túi mây tre đan dạng hộp",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Giao thoa văn hóa", "Thanh lịch"],
+            "mau_sac": ["Nâu"],
+            "file_prefix": "tui_may_tre"
+        },
+        "tui_mini_ngoc_trai": {
+            "ten": "Túi xách mini đính ngọc trai",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Tiệc đêm", "Y2K"],
+            "mau_sac": ["Trắng"],
+            "file_prefix": "tui_mini_ngoc_trai"
+        },
+        "clutch_hop_cung": {
+            "ten": "Ví cầm tay (Clutch) hộp cứng",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Sang trọng", "Dạ hội"],
+            "mau_sac": ["Đen", "Bạc"],
+            "file_prefix": "clutch_hop"
+        },
+        "tui_deo_cheo_nho": {
+            "ten": "Túi đeo chéo nhỏ",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Năng động", "Tiện dụng"],
+            "mau_sac": ["Đen", "Nâu"],
+            "file_prefix": "tui_deo_cheo"
+        }
+    },
+
+    "phu_kien_dau_va_toc": {
+        "khan_ran": {
+            "ten": "Khăn rằn",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Truyền thống", "Nam Bộ"],
+            "mau_sac": ["Đen"],
+            "file_prefix": "khan_ran"
+        },
+        "khan_van": {
+            "ten": "Khăn vấn (Khăn đóng)",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Truyền thống", "Cung đình", "Trang trọng"],
+            "mau_sac": ["Đen nam", "Đen nữ"],
+            "file_prefix": "khan_van"
+        },
+        "mu_phuong": {
+            "ten": "Mũ phượng",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Truyền thống", "Cung đình", "Lễ phục"],
+            "mau_sac": ["Vàng"],
+            "file_prefix": "mu_phuong"
+        },
+        "tram_cai_toc": {
+            "ten": "Trâm cài tóc kim loại",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Tối giản", "Truyền thống cách tân"],
+            "mau_sac": ["Bạc", "Vàng"],
+            "file_prefix": "tram_cai_toc"
+        },
+        "khan_vanh": {
+            "ten": "Khăn vành to bản",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Truyền thống", "Cung đình", "Lễ phục"],
+            "mau_sac": ["Xanh", "Vàng"],
+            "file_prefix": "khan_vanh"
+        },
+        "mu_phoc_dau": {
+            "ten": "Mũ phốc đầu (Cánh chuồn)",
+            "gioi_tinh": ["Nam"],
+            "style": ["Truyền thống", "Cung đình", "Quan lại"],
+            "mau_sac": ["Đen"],
+            "file_prefix": "mu_phoc_dau"
+        },
+        "mu_bucket": {
+            "ten": "Mũ Bucket (Mũ tai bèo)",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Streetwear", "Bụi bặm"],
+            "mau_sac": ["Đen", "Be"],
+            "file_prefix": "mu_bucket"
+        },
+        "non_ba_tam": {
+            "ten": "Nón ba tầm",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Truyền thống", "Lễ phục"],
+            "mau_sac": ["Be"],
+            "file_prefix": "non_ba_tam"
+        }
+    },
+
+    "trang_suc": {
+        "kinh_mat_chu_nhat": {
+            "ten": "Kính mát gọng chữ nhật",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Y2K", "Cá tính"],
+            "mau_sac": ["Đen", "Bạc"],
+            "file_prefix": "kinh_mat_chu_nhat"
+        },
+        "khuyen_tai_ngoc_trai": {
+            "ten": "Khuyên tai nụ ngọc trai",
+            "gioi_tinh": ["Nữ"],
+            "style": ["Hiện đại", "Thanh lịch", "Tối giản"],
+            "mau_sac": ["Trắng"],
+            "file_prefix": "khuyen_tai_ngoc_trai"
+        },
+        "nhan_ngoc_bich": {
+            "ten": "Nhẫn ngọc bích bản trơn",
+            "gioi_tinh": ["Nữ", "Nam"],
+            "style": ["Hiện đại", "Sang trọng", "Hoài cổ"],
+            "mau_sac": ["Xanh"],
+            "file_prefix": "nhan_ngoc_bich"
+        },
+        "dai_lung_ngoc": {
+            "ten": "Đai lưng khảm ngọc/đồi mồi",
+            "gioi_tinh": ["Nam"],
+            "style": ["Truyền thống", "Quyền lực", "Cung đình"],
+            "mau_sac": ["Đen"],
+            "file_prefix": "dai_lung"
+        },
+        "dong_ho_kim_loai": {
+            "ten": "Đồng hồ dây kim loại",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Hiện đại", "Thanh lịch"],
+            "mau_sac": ["Bạc", "Vàng"],
+            "file_prefix": "dong_ho"
+        },
+        "that_lung_lua": {
+            "ten": "Thắt lưng lụa (Đại đới)",
+            "gioi_tinh": ["Nam", "Nữ"],
+            "style": ["Truyền thống", "Cổ phong"],
+            "mau_sac": ["Đen", "Đỏ", "Vàng"],
+            "file_prefix": "that_lung_lua"
+        }
+    }
+}
