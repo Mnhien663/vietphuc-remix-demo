@@ -1933,7 +1933,7 @@ export default function App() {
               {/* Nút Kêu Gọi Hành Động Chính */}
               {page === 'home' ? (
                 null
-              // TÌM VÀ THAY THẾ KHỐI BUTTON NÀY:
+                
               ) : page === 'chatbot' ? (
                 <button
                   className="nav-primary-cta"
