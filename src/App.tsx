@@ -101,6 +101,13 @@ const COLOR_LABELS: Record<string, string> = {
   hong: 'Hồng'
 };
 
+const COLOR_HEX: Record<string, string> = {
+  do: '#D32F2F', den: '#212121', trang: '#FFFFFF', xanh: '#1976D2',
+  vang: '#FBC02D', nau: '#795548', tim: '#7B1FA2', cam: '#F57C00',
+  be: '#EAE0C8', xam: '#9E9E9E', xanh_com_nhat: '#C5E1A5',
+  xanh_co_vit: '#00838F', reu: '#558B2F', hong: '#F48FB1'
+};
+
 // 8 BỘ PHỐI SẴN ĐÃ ĐƯỢC CHUẨN HÓA LẠI LOGIC MÀU SẮC VÀ DANH MỤC PHỤ KIỆN
 const PRESET_OUTFITS: PresetOutfit[] = [
   {
@@ -470,8 +477,20 @@ export function TamTauLogo({
 }
 
 export default function App() {
-  const [page, setPage] = useState<'home' | 'chatbot' | 'result' | 'about'>('home');
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  // 1. Dùng localStorage để lấy lại trang cũ trước khi reload, nếu không có thì mặc định vào 'home'
+  const [page, setPage] = useState<'home' | 'chatbot' | 'result' | 'about'>(() => {
+    const savedPage = localStorage.getItem('tamtau_current_page');
+    return (savedPage as 'home' | 'chatbot' | 'result' | 'about') || 'home';
+  });
+
+  // 2. Đổi giá trị khởi tạo mặc định sang 'light' để giao diện sáng xuất hiện đầu tiên
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
+
+  // 3. Sử dụng useEffect để tự động lưu tên trang vào localStorage mỗi khi bạn chuyển trang
+  useEffect(() => {
+    localStorage.setItem('tamtau_current_page', page);
+  }, [page]);
+
   const isDark = theme === 'dark';
   const [catalog, setCatalog] = useState<Record<string, CatalogItem[]>>({
     'Trang phục': [],
@@ -497,6 +516,7 @@ export default function App() {
   const [userGender, setUserGender] = useState<string | null>(null);
   const [userColor, setUserColor] = useState<string | null>(null);
   const [activeColorFilter, setActiveColorFilter] = useState<string | null>(null);
+  const [itemColors, setItemColors] = useState<Record<string, string>>({});
   const [previewMode, setPreviewMode] = useState<'mannequin' | 'grid'>('mannequin');
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -556,37 +576,53 @@ export default function App() {
     if (prefix === 'chan_vay_xep_ly_dai') prefix = 'chan_vay_dap_ly';
     if (prefix === 'tui_mini_ngoc_trai') prefix = 'tui_mini_ngoc_trai';
     
-    const gioiTinhList = item.gioi_tinh || [];
-    const activeColor = overrideFilter !== undefined ? overrideFilter : (activeColorFilter || colorCode);
+    const activeColor = overrideFilter !== undefined ? overrideFilter : (colorCode || activeColorFilter);
 
-    // Ưu tiên tìm chính xác theo prefix trước
-    const exactSimpleMatch = dataFiles.find(f => f === `${prefix}.png`);
+    // Xác định giới tính đang chọn để ưu tiên (nếu không chọn thì bỏ qua)
+    let userGenTag = '';
+    if (gender === 'Nữ') userGenTag = 'nu';
+    else if (gender === 'Nam') userGenTag = 'nam';
+
+    // Lọc ra các file thuộc về item này trước
+    const candidates = dataFiles.filter(f => f.startsWith(prefix) && f.endsWith('.png'));
+    if (candidates.length === 0) return '';
+
+    // Hàm hỗ trợ kiểm tra chuỗi an toàn
+    const hasColor = (f: string, c: string) => f.endsWith(`_${c}.png`) || f.includes(`_${c}_`);
+    const hasGen = (f: string, g: string) => f.includes(`_${g}_`) || f.endsWith(`_${g}.png`);
+
+    // 1. ƯU TIÊN SỐ 1: Bắt buộc phải ĐÚNG MÀU (nếu người dùng có chọn màu)
+    if (activeColor) {
+      // 1.1 Đúng Màu + Đúng Giới Tính
+      if (userGenTag) {
+        const exact = candidates.find(f => hasColor(f, activeColor) && hasGen(f, userGenTag));
+        if (exact) return `/data/${exact}`;
+      }
+      // 1.2 Đúng Màu + Form Unisex
+      const unisexExact = candidates.find(f => hasColor(f, activeColor) && hasGen(f, 'unisex'));
+      if (unisexExact) return `/data/${unisexExact}`;
+
+      // 1.3 Đúng Màu (Không tag giới tính hoặc tag khác)
+      const anyGenExact = candidates.find(f => hasColor(f, activeColor));
+      if (anyGenExact) return `/data/${anyGenExact}`;
+    }
+
+    // 2. ƯU TIÊN SỐ 2: Không có màu thì phải ĐÚNG GIỚI TÍNH (Tránh Nữ hiện Nam)
+    if (userGenTag) {
+      const matchGen = candidates.find(f => hasGen(f, userGenTag));
+      if (matchGen) return `/data/${matchGen}`;
+    }
+    
+    // 3. Fallback về đồ Unisex nếu không có form nam/nữ riêng
+    const matchUnisex = candidates.find(f => hasGen(f, 'unisex'));
+    if (matchUnisex) return `/data/${matchUnisex}`;
+
+    // 4. Fallback về file gốc không có tag màu/giới tính (Chuyển xuống chót để không bị đè màu)
+    const exactSimpleMatch = candidates.find(f => f === `${prefix}.png`);
     if (exactSimpleMatch) return `/data/${exactSimpleMatch}`;
 
-    // Tìm theo màu (Bỏ qua giới tính)
-    if (activeColor) {
-      const matchColorOnly = dataFiles.find(f => f.startsWith(prefix) && f.endsWith('.png') && f.includes(`_${activeColor}`));
-      if (matchColorOnly) return `/data/${matchColorOnly}`;
-    }
-
-    // Logic ghép giới tính và màu
-    let genderTag = '';
-    if (gioiTinhList.includes('Nam') && gioiTinhList.includes('Nữ')) genderTag = 'unisex';
-    else if (gioiTinhList.includes('Nữ')) genderTag = 'nu';
-    else if (gioiTinhList.includes('Nam')) genderTag = 'nam';
-
-    if (genderTag && activeColor) {
-      const exactFile = `${prefix}_${genderTag}_${activeColor}.png`;
-      if (dataFiles.includes(exactFile)) return `/data/${exactFile}`;
-    }
-
-    if (genderTag) {
-      const matchGender = dataFiles.find(f => f.startsWith(prefix) && f.endsWith('.png') && f.includes(`_${genderTag}_`));
-      if (matchGender) return `/data/${matchGender}`;
-    }
-
-    const fallback = dataFiles.find(f => f.startsWith(prefix) && f.endsWith('.png'));
-    return fallback ? `/data/${fallback}` : '';
+    // 5. Đường cùng: Trả về file đầu tiên tìm thấy
+    return `/data/${candidates[0]}`;
   }
 
   // Áp dụng trọn vẹn một bộ phối sẵn vào phòng thử đồ
@@ -642,6 +678,7 @@ export default function App() {
     setUserGender(preset.gender);
     setUserColor(preset.primaryColor);
     setActiveColorFilter(null);
+    setItemColors({});
     setPage('chatbot');
     setSelectedPresetDetail(null);
     setShowPresetsModal(false);
@@ -661,7 +698,7 @@ export default function App() {
     ]);
   }
 
-  function chamDiemOutfit(sel: SelectedItems, uColor: string | null, currStep: string) {
+  function chamDiemOutfit(sel: SelectedItems, uColor: string | null, currStep: string, itemColorsMap: Record<string, string>) {
     let diem = 0;
     const nhanXet: string[] = [];
     const goiYAi: string[] = [];
@@ -681,10 +718,17 @@ export default function App() {
       if (value) {
         const items = Array.isArray(value) ? value : [value];
         items.forEach(item => {
-          const chuoiNhanDien = `${item.name || ''} ${item.id || ''} ${item.file_prefix || ''}`.toLowerCase();
-          danhSachMau.forEach(c => {
-            if (chuoiNhanDien.includes(c)) colorsFound.add(c);
-          });
+          // 2. Thêm đoạn ưu tiên lấy màu từ itemColorsMap
+          const specificColor = itemColorsMap[item.id];
+          if (specificColor && COLOR_LABELS[specificColor]) {
+            colorsFound.add(COLOR_LABELS[specificColor].toLowerCase());
+          } else {
+            // (giữ nguyên logic chuoiNhanDien cũ)
+            const chuoiNhanDien = `${item.name || ''} ${item.id || ''} ${item.file_prefix || ''}`.toLowerCase();
+            danhSachMau.forEach(c => {
+              if (chuoiNhanDien.includes(c)) colorsFound.add(c);
+            });
+          }
         });
       }
     });
@@ -870,7 +914,14 @@ export default function App() {
     try {
       const selDescription = Object.entries(selectedItems)
         .filter(([_, v]) => v !== null && (Array.isArray(v) ? v.length > 0 : true))
-        .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.map((i: any) => i.name).join(', ') : (v as any).name}`)
+        .map(([k, v]) => {
+          if (Array.isArray(v)) {
+            return `${k}: ${v.map((i: any) => `${i.name} (màu ${COLOR_LABELS[itemColors[i.id]] || COLOR_LABELS[userColor || ''] || 'mặc định'})`).join(', ')}`;
+          } else {
+            const item = v as any;
+            return `${k}: ${item.name} (màu ${COLOR_LABELS[itemColors[item.id]] || COLOR_LABELS[userColor || ''] || 'mặc định'})`;
+          }
+        })
         .join('; ');
 
       const res = await fetch('/api/chat', {
@@ -1003,7 +1054,7 @@ export default function App() {
       const drawSlot = async (item: CatalogItem | null | undefined, x: number, y: number, w: number, h: number) => {
         drawRoundedRect(x, y, w, h, 20, boxBg);
         if (!item) return;
-        const src = getDynamicImagePath(item, userGender, userColor);
+        const src = getDynamicImagePath(item, userGender, itemColors[item.id] || userColor);
         if (!src) return;
         const img = await loadImage(src);
         if (img) {
@@ -1030,15 +1081,15 @@ export default function App() {
 
       // ================= LOGIC GRID ĐỘNG (TỰ ĐỘNG CO GIÃN) ================= //
 
-      // 1. Ô Trái (Cố định cho Việt Phục)
-      const mainOutfit = selectedItems['Trang phục'] || selectedItems['Áo'];
+      // 1. Ô Trái (Chỉ dành riêng cho Trang phục chính)
+      const mainOutfit = selectedItems['Trang phục'];
       if (mainOutfit) {
         await drawSlot(mainOutfit, 40, 140, 600, 830);
       }
 
-      // 2. Cột Phải (Quần, Áo trong, Túi) - Lọc rỗng và chia đều chiều cao
+      // 2. Cột Phải (Áo, Quần, Túi) - Lọc rỗng và chia đều chiều cao
       const rawRightItems = [
-        selectedItems['Trang phục'] && selectedItems['Áo'] ? selectedItems['Áo'] : null,
+        selectedItems['Áo'], // Áo được dời hẳn sang bên phải
         selectedItems['Váy/Quần'],
         selectedItems['Túi xách']
       ];
@@ -1073,7 +1124,7 @@ export default function App() {
     };
 
     generateCanvas();
-  }, [page, selectedItems, userGender, userColor, isDark]);
+  }, [page, selectedItems, userGender, userColor, isDark, itemColors]);
 
   // Filtering products for current step
   const rawItemsForStep = catalog[currentStep] || [];
@@ -1106,7 +1157,7 @@ export default function App() {
     if (activeColorFilter) {
       if (!(item.mau_sac || []).includes(activeColorFilter)) return false;
     }
-    const imgPath = getDynamicImagePath(item, userGender, userColor);
+    const imgPath = getDynamicImagePath(item, userGender, itemColors[item.id] || userColor);
     if (!imgPath) return false;
     return true;
   });
@@ -1117,11 +1168,8 @@ export default function App() {
     filteredItems = [...vayList, ...quanList];
   }
 
-  const scoreData = chamDiemOutfit(selectedItems, userColor, currentStep);
-  const chuaChonTrangPhuc =
-    selectedItems['Trang phục'] === null &&
-    selectedItems['Áo'] === null &&
-    selectedItems['Váy/Quần'] === null;
+  const scoreData = chamDiemOutfit(selectedItems, userColor, currentStep, itemColors);
+  const chuaChonTrangPhuc = selectedItems['Trang phục'] === null;
 
   const hasAnySelectedItem = Object.values(selectedItems).some(v => (Array.isArray(v) ? v.length > 0 : Boolean(v)));
 
@@ -1885,12 +1933,15 @@ export default function App() {
               {/* Nút Kêu Gọi Hành Động Chính */}
               {page === 'home' ? (
                 null
+              // TÌM VÀ THAY THẾ KHỐI BUTTON NÀY:
               ) : page === 'chatbot' ? (
                 <button
                   className="nav-primary-cta"
                   disabled={chuaChonTrangPhuc}
                   onClick={() => setPage('result')}
-                  title={chuaChonTrangPhuc ? 'Hãy chọn áo hoặc Việt phục trước khi xuất kết quả' : 'Xuất poster OOTD'}
+                  // Thuộc tính title này sẽ tự động tạo khung tooltip hiện lên khi di chuột vào nút
+                  title={chuaChonTrangPhuc ? 'Vui lòng chọn Trang phục chính trước khi xuất kết quả' : 'Xuất poster OOTD'}
+                  style={chuaChonTrangPhuc ? { background: '#999', boxShadow: 'none', color: '#E0E0E0', cursor: 'not-allowed' } : {}}
                 >
                   <span>Xuất kết quả</span>
                   <span>✦</span>
@@ -2570,6 +2621,7 @@ export default function App() {
                           'Phụ kiện': [],
                           'Giày': null
                         });
+                        setItemColors({});
                       }}
                       style={{ padding: '6px 12px', fontSize: '13px' }}
                       title="Đặt lại các món đồ đã chọn"
@@ -2608,19 +2660,10 @@ export default function App() {
                   ) : previewMode === 'mannequin' ? (
                     <div className="mockup-stage">
                       <div className="mockup-mannequin-frame">
-                        {/* NHÓM BÊN TRÁI: Áo & Trang phục */}
-                        {selectedItems['Áo'] && (
-                          <img 
-                            src={getDynamicImagePath(selectedItems['Áo'], userGender, userColor)} 
-                            alt={selectedItems['Áo'].name} 
-                            title={selectedItems['Áo'].name} // Hiện tên khi di chuột
-                            className="mannequin-layer" 
-                            style={{ zIndex: 2, transform: 'translate(-15%, 0%) scale(0.75)' }} 
-                          />
-                        )}
+                        {/* NHÓM BÊN TRÁI: Chỉ riêng Trang phục */}
                         {selectedItems['Trang phục'] && (
                           <img 
-                            src={getDynamicImagePath(selectedItems['Trang phục'], userGender, userColor)} 
+                            src={getDynamicImagePath(selectedItems['Trang phục'], userGender, itemColors[selectedItems['Trang phục'].id] || userColor)} 
                             alt={selectedItems['Trang phục'].name} 
                             title={selectedItems['Trang phục'].name} 
                             className="mannequin-layer" 
@@ -2628,10 +2671,20 @@ export default function App() {
                           />
                         )}
 
-                        {/* NHÓM BÊN PHẢI: Quần, Váy, Giày, Túi, Khăn, Đai */}
+                        {/* NHÓM BÊN PHẢI: Áo, Quần, Váy, Giày, Túi, Khăn, Đai */}
+                        {selectedItems['Áo'] && (
+                          <img 
+                            src={getDynamicImagePath(selectedItems['Áo'], userGender, itemColors[selectedItems['Áo'].id] || userColor)} 
+                            alt={selectedItems['Áo'].name} 
+                            title={selectedItems['Áo'].name} 
+                            className="mannequin-layer" 
+                            // Dịch Áo sang tọa độ bên phải, nằm lấp ló sau Trang Phục (nếu có)
+                            style={{ zIndex: 2, transform: 'translate(15%, -10%) scale(0.6)' }} 
+                          />
+                        )}
                         {selectedItems['Váy/Quần'] && (
                           <img 
-                            src={getDynamicImagePath(selectedItems['Váy/Quần'], userGender, userColor)} 
+                            src={getDynamicImagePath(selectedItems['Váy/Quần'], userGender, itemColors[selectedItems['Váy/Quần'].id] || userColor)} 
                             alt={selectedItems['Váy/Quần'].name} 
                             title={selectedItems['Váy/Quần'].name} 
                             className="mannequin-layer" 
@@ -2642,14 +2695,14 @@ export default function App() {
                         {mainAccs.map(acc => {
                           const n = acc.name.toLowerCase();
                           if (n.includes('thắt lưng') || n.includes('đai')) {
-                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, userColor)} alt={acc.name} title={acc.name} className="mannequin-layer" style={{ zIndex: 4, transform: 'translate(20%, -2%) scale(0.5)' }} />;
+                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, itemColors[acc.id] || userColor)} alt={acc.name} title={acc.name} className="mannequin-layer" style={{ zIndex: 4, transform: 'translate(20%, -2%) scale(0.5)' }} />;
                           }
                           return null;
                         })}
 
                         {selectedItems['Giày'] && (
                           <img 
-                            src={getDynamicImagePath(selectedItems['Giày'], userGender, userColor)} 
+                            src={getDynamicImagePath(selectedItems['Giày'], userGender, itemColors[selectedItems['Giày'].id] || userColor)} 
                             alt={selectedItems['Giày'].name} 
                             title={selectedItems['Giày'].name} 
                             className="mannequin-layer" 
@@ -2659,7 +2712,7 @@ export default function App() {
                         
                         {selectedItems['Nón'] && (
                           <img 
-                            src={getDynamicImagePath(selectedItems['Nón'], userGender, userColor)} 
+                            src={getDynamicImagePath(selectedItems['Nón'], userGender, itemColors[selectedItems['Nón'].id] || userColor)} 
                             alt={selectedItems['Nón'].name} 
                             title={selectedItems['Nón'].name} 
                             className="mannequin-layer" 
@@ -2670,78 +2723,69 @@ export default function App() {
                         {mainAccs.map(acc => {
                           const n = acc.name.toLowerCase();
                           if (n.includes('mũ') || n.includes('nón') || n.includes('khăn vấn') || n.includes('khăn vành')) {
-                            // Đội lên đầu
-                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, userColor)} alt={acc.name} title={acc.name} className="mannequin-layer" style={{ transform: 'translate(20%, -25%) scale(0.5)', zIndex: 6 }} />;
+                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, itemColors[acc.id] || userColor)} alt={acc.name} title={acc.name} className="mannequin-layer" style={{ transform: 'translate(20%, -25%) scale(0.5)', zIndex: 6 }} />;
                           } else if (n.includes('khăn rằn') || n.includes('trâm')) {
-                            // Cài trên tóc hoặc quấn cổ
-                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, userColor)} alt={acc.name} title={acc.name} className="mannequin-layer" style={{ transform: 'translate(20%, -15%) scale(0.5)', zIndex: 6 }} />;
+                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, itemColors[acc.id] || userColor)} alt={acc.name} title={acc.name} className="mannequin-layer" style={{ transform: 'translate(20%, -15%) scale(0.5)', zIndex: 6 }} />;
                           }
                           return null;
                         })}
 
                         {selectedItems['Túi xách'] && (
                           <img 
-                            src={getDynamicImagePath(selectedItems['Túi xách'], userGender, userColor)} 
+                            src={getDynamicImagePath(selectedItems['Túi xách'], userGender, itemColors[selectedItems['Túi xách'].id] || userColor)} 
                             alt={selectedItems['Túi xách'].name} 
                             title={selectedItems['Túi xách'].name} 
                             className="mannequin-layer" 
                             style={{ transform: 'translate(25%, 8%) scale(0.5)', zIndex: 7 }} 
                           />
                         )}
-
                       </div>
 
                       {/* Phụ Kiện Nhỏ Điểm Xuyết (Kính, Khuyên tai, Nhẫn, Đồng hồ) */}
-                        {floatingAccs.length > 0 && (
-                          <>
-                            {floatingAccs.map((acc, index) => {
-                              const n = acc.name.toLowerCase();
-                              
-                              let topPosition = '50%';
-                              let rightPosition = '20%'; // Dời dần vào trung tâm nhóm đồ bên phải
+                      {floatingAccs.length > 0 && (
+                        <>
+                          {floatingAccs.map((acc, index) => {
+                            const n = acc.name.toLowerCase();
+                            let topPosition = '50%';
+                            let rightPosition = '20%';
 
-                              if (n.includes('khuyên tai')) {
-                                topPosition = '10%'; 
-                                rightPosition = '28%'; // Nằm lơ lửng phía trên không gian của quần/váy
-                              } else if (n.includes('kính')) {
-                                topPosition = '24%'; 
-                                rightPosition = '28%'; // Nằm ngay dưới khuyên tai, cân đối với khoảng trống
-                              } else if (n.includes('đồng hồ')) {
-                                topPosition = '45%'; 
-                                rightPosition = '10%'; // Nằm ngang hông, nép sát cạnh túi xách
-                              } else if (n.includes('nhẫn')) {
-                                topPosition = '58%'; 
-                                rightPosition = '10%'; // Nằm ngay dưới đồng hồ
-                              } else {
-                                topPosition = `${10 + index * 15}%`;
-                                rightPosition = '15%';
-                              }
+                            if (n.includes('khuyên tai')) {
+                              topPosition = '10%'; rightPosition = '28%';
+                            } else if (n.includes('kính')) {
+                              topPosition = '24%'; rightPosition = '28%';
+                            } else if (n.includes('đồng hồ')) {
+                              topPosition = '45%'; rightPosition = '10%';
+                            } else if (n.includes('nhẫn')) {
+                              topPosition = '58%'; rightPosition = '10%';
+                            } else {
+                              topPosition = `${10 + index * 15}%`; rightPosition = '15%';
+                            }
 
-                              return (
-                                <img
-                                  key={acc.id}
-                                  src={getDynamicImagePath(acc, userGender, userColor)}
-                                  alt={acc.name}
-                                  title={acc.name}
-                                  style={{
-                                    position: 'absolute',
-                                    top: topPosition,
-                                    right: rightPosition,
-                                    width: '64px',
-                                    height: '64px',
-                                    objectFit: 'contain',
-                                    zIndex: 15,
-                                    filter: isDark ? 'drop-shadow(0 4px 10px rgba(0,0,0,0.5))' : 'drop-shadow(0 4px 10px rgba(0,0,0,0.15))',
-                                    transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                                    cursor: 'pointer'
-                                  }}
-                                  onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
-                                  onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                                />
-                              );
-                            })}
-                          </>
-                        )}
+                            return (
+                              <img
+                                key={acc.id}
+                                src={getDynamicImagePath(acc, userGender, itemColors[acc.id] || userColor)}
+                                alt={acc.name}
+                                title={acc.name}
+                                style={{
+                                  position: 'absolute',
+                                  top: topPosition,
+                                  right: rightPosition,
+                                  width: '64px',
+                                  height: '64px',
+                                  objectFit: 'contain',
+                                  zIndex: 15,
+                                  filter: isDark ? 'drop-shadow(0 4px 10px rgba(0,0,0,0.5))' : 'drop-shadow(0 4px 10px rgba(0,0,0,0.15))',
+                                  transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                                  cursor: 'pointer'
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+                                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                              />
+                            );
+                          })}
+                        </>
+                      )}
                     </div>
                   ) : (
                     /* Chế độ xem dạng lưới các món đang chọn */
@@ -2751,7 +2795,7 @@ export default function App() {
                         const items = Array.isArray(value) ? value : [value];
                         return items.map((item: CatalogItem) => (
                           <div key={item.id} className="mockup-grid-cell">
-                            <img src={getDynamicImagePath(item, userGender, userColor)} alt={item.name} />
+                            <img src={getDynamicImagePath(item, userGender, itemColors[item.id] || userColor)} alt={item.name} />
                             <span>{item.name}</span>
                             <span style={{ fontSize: '10px', opacity: 0.6 }}>{category}</span>
                           </div>
@@ -3088,7 +3132,34 @@ export default function App() {
                     isSelected = selectedItems[currentStep]?.id === item.id;
                   }
 
-                  const imgPath = getDynamicImagePath(item, userGender, userColor);
+                  // 1. THÊM LOGIC LỌC MÀU KHẮT KHE THEO GIỚI TÍNH
+                  const availableColors = (item.mau_sac || []).filter(colorCode => {
+                    if (!userGender) return true; // Hiện tất cả nếu đang ở chế độ "Tất cả"
+                    
+                    let prefix = item.file_prefix || '';
+                    if (prefix === 'chan_vay_xep_ly_dai') prefix = 'chan_vay_dap_ly';
+                    if (prefix === 'tui_mini_ngoc_trai') prefix = 'tui_mini_ngoc_trai';
+                    
+                    const genderTag = userGender === 'Nữ' ? 'nu' : 'nam';
+                    
+                    // 2. Tìm xem có file ảnh thực sự tồn tại cho màu & giới tính này không
+                    return dataFiles.some(f => {
+                      // Phải đúng tiền tố món đồ
+                      if (!f.startsWith(prefix)) return false;
+                      
+                      // Phải chứa đúng mã màu (tránh nhầm lẫn 'den' và 'denim')
+                      const hasColor = f.endsWith(`_${colorCode}.png`) || f.includes(`_${colorCode}_`);
+                      if (!hasColor) return false;
+                      
+                      // Phải khớp với giới tính đang chọn (ngoại trừ đồ unisex thì ai mặc cũng được)
+                      if (f.includes('_nu') && !f.includes('unisex') && genderTag !== 'nu') return false;
+                      if (f.includes('_nam') && !f.includes('unisex') && genderTag !== 'nam') return false;
+                      
+                      return true;
+                    });
+                  });
+
+                  const imgPath = getDynamicImagePath(item, userGender, itemColors[item.id] || userColor);
 
                   return (
                     <div
@@ -3134,6 +3205,45 @@ export default function App() {
                       >
                         {isSelected ? '✓ Đã chọn (Bỏ)' : 'Chọn món này'}
                       </button>
+
+                      {/* ĐÂY LÀ THANH MÀU NẰM NGANG HIỆN RA KHI ĐƯỢC CHỌN */}
+                      {isSelected && availableColors.length > 0 && (
+                        <div style={{ 
+                          display: 'flex', 
+                          gap: '6px', 
+                          justifyContent: 'center', 
+                          marginTop: '12px', 
+                          flexWrap: 'wrap' 
+                        }}>
+                          {/* ĐẢM BẢO LÀ availableColors.map chứ không phải item.mau_sac.map */}
+                          {availableColors.map((colorCode: string) => {
+                            const appliedColor = itemColors[item.id] || userColor || activeColorFilter;
+                            const isCurrent = appliedColor === colorCode;
+                            
+                            return (
+                              <button
+                                key={colorCode}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setItemColors(prev => ({ ...prev, [item.id]: colorCode }));
+                                }}
+                                style={{
+                                  width: '22px',
+                                  height: '22px',
+                                  borderRadius: '50%',
+                                  backgroundColor: COLOR_HEX[colorCode] || '#ccc',
+                                  // Đổi logic viền để nhận diện đúng màu đang active
+                                  border: isCurrent ? `2px solid ${isDark ? '#F1E3C8' : '#D85A3F'}` : '1px solid #999',
+                                  boxShadow: isCurrent ? '0 0 0 2px rgba(216,90,63,0.2)' : 'none',
+                                  cursor: 'pointer',
+                                  transition: 'all 0.2s ease'
+                                }}
+                                title={COLOR_LABELS[colorCode] || colorCode}
+                              />
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -3164,25 +3274,23 @@ export default function App() {
                   </span>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  {currentStepIndex < STEPS.length - 1 ? (
+                // TÌM VÀ THAY THẾ KHỐI BUTTON NÀY:
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
                     <button
-                      className="st-btn primary"
-                      onClick={() => setCurrentStepIndex(i => Math.min(STEPS.length - 1, i + 1))}
+                      className="nav-primary-cta"
+                      disabled={chuaChonTrangPhuc}
+                      onClick={() => setPage('result')}
+                      style={chuaChonTrangPhuc ? { background: '#999', boxShadow: 'none', color: '#E0E0E0' } : {}}
                     >
-                      Tiếp theo: {STEPS[currentStepIndex + 1]} ❯
+                      <span>Hoàn tất &amp; Xuất bảng OOTD</span>
+                      <span>✦</span>
                     </button>
-                  ) : null}
-
-                  <button
-                    className="nav-primary-cta"
-                    disabled={chuaChonTrangPhuc}
-                    onClick={() => setPage('result')}
-                  >
-                    <span>Hoàn tất &amp; Xuất bảng OOTD</span>
-                    <span>✦</span>
-                  </button>
-                </div>
+                    {chuaChonTrangPhuc && (
+                      <span style={{ fontSize: '12px', color: isDark ? '#E57373' : '#D32F2F', fontWeight: 600 }}>
+                        * Vui lòng chọn 1 món ở tab "Trang phục" để tiếp tục
+                      </span>
+                    )}
+                  </div>
               </div>
             </div>
           </div>
