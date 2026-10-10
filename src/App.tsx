@@ -687,7 +687,7 @@ export default function App() {
       ...prev,
       {
         role: 'assistant',
-        content: `✨ Tui đã nạp trọn bộ **${preset.name}** (${preset.tag}) lên mannequin cho bồ rồi nè!\n\n👘 **Các món trong set gồm:**\n• ${preset.itemSummary.join('\n• ')}\n\n💡 **Lời khuyên phối đồ:** ${preset.styleAdvice}\n\nMannequin đã được tùy biến phom dáng chuẩn theo giới tính **${preset.gender}**. Bồ có thể bấm **Xuất kết quả** để xem poster OOTD ngay nha!`,
+        content: `✨ Tui đã nạp trọn bộ **${preset.name}** (${preset.tag}) lên màn hình cho bồ rồi nè!\n\n👘 **Các món trong set gồm:**\n• ${preset.itemSummary.join('\n• ')}\n\n💡 **Lời khuyên phối đồ:** ${preset.styleAdvice}\n\nTrang phục đã được tùy biến chuẩn theo giới tính **${preset.gender}**. Bồ có thể bấm **Xuất kết quả** để xem poster OOTD ngay nha!`,
         options: [
           'Xuất kết quả OOTD ngay',
           'Đổi màu trang phục',
@@ -788,7 +788,7 @@ export default function App() {
       nhanXet.push('Hòa sắc đồng điệu và an toàn (+2đ)');
       goiYAi.push('💡 Bồ nên thay đổi hoặc chọn phụ kiện khác màu trung tính (đen, trắng, bạc) để có thêm điểm nhấn cho bộ đồ.');
       colorHarmony = true;
-    } else if (mauNoiBat.length === 1 || mauNoiBat.length === 3) {
+    } else if (mauNoiBat.length === 1) {
       diem += 3;
       nhanXet.push(`Hòa sắc Monochrome / Điểm nhấn màu ${mauNoiBat[0]} thanh lịch (+3đ)`);
       colorHarmony = true;
@@ -1077,7 +1077,9 @@ export default function App() {
       // Tách lọc phụ kiện
       const mainAccs = selectedItems['Phụ kiện'] || [];
       const nonItem = selectedItems['Nón'] || mainAccs.find(a => a.name.toLowerCase().includes('khăn') || a.name.toLowerCase().includes('trâm') || a.name.toLowerCase().includes('mũ'));
-      const daiItem = mainAccs.find(a => a.name.toLowerCase().includes('thắt lưng') || a.name.toLowerCase().includes('đai')) || mainAccs.find(a => a.id !== nonItem?.id);
+      
+      // SỬA LỖI: Lọc lấy TẤT CẢ các phụ kiện còn lại (ngoại trừ món đã được tính là Nón)
+      const otherAccs = mainAccs.filter(a => a.id !== nonItem?.id);
 
       // ================= LOGIC GRID ĐỘNG (TỰ ĐỘNG CO GIÃN) ================= //
 
@@ -1106,8 +1108,10 @@ export default function App() {
       }
 
       // 3. Hàng Dưới (Giày, Nón, Đai/Phụ kiện) - Lọc rỗng và chia đều chiều rộng
-      const rawBottomItems = [nonItem, selectedItems['Giày'], daiItem];
-      const bottomItems = rawBottomItems.filter(Boolean); // Chỉ giữ các món có thật
+      const rawBottomItems = [nonItem, selectedItems['Giày'], ...otherAccs];
+      
+      // Bổ sung dòng khai báo và lọc các món rỗng này
+      const bottomItems = rawBottomItems.filter(Boolean); 
 
       if (bottomItems.length > 0) {
         const gap = 20;
@@ -2026,7 +2030,7 @@ export default function App() {
                     zIndex: 10
                   }}>
                     <span style={{ fontSize: '13px', fontWeight: 600 }}>Áo Nhật Bình · Cung Đình Triều Nguyễn</span>
-                    <span style={{ fontSize: '12px', color: isDark ? '#6C854B' : '#D85A3F', fontWeight: 700 }}>Mannequin Nữ</span>
+                    <span style={{ fontSize: '12px', color: isDark ? '#6C854B' : '#D85A3F', fontWeight: 700 }}>Bản nữ</span>
                   </div>
                 </div>
               </div>
@@ -2050,7 +2054,7 @@ export default function App() {
                     Khám phá các set đồ phối sẵn
                   </h3>
                   <p style={{ margin: '6px 0 0 0', opacity: 0.8, fontSize: '14.5px' }}>
-                    Minh họa trực quan trên mannequin không có mặt, giữ nguyên 100% chi tiết hoa văn và màu sắc trang phục thực tế.
+                    Minh họa trực quan, giữ nguyên 100% chi tiết hoa văn và màu sắc trang phục thực tế.
                   </p>
                 </div>
 
@@ -2261,7 +2265,7 @@ export default function App() {
                 lineHeight: 1.65,
                 fontSize: '14.5px'
               }}>
-                <b>✨ Nguyên tắc của Việt Phục Remix:</b> Toàn bộ trang phục và phụ kiện trên ứng dụng đều được số hóa từ các bộ phục dựng cổ phục thật, giữ nguyên đường kim mũi chỉ, chất liệu lụa, gấm, sa, đũi. Cốt mannequin hiển thị là loại <b>mannequin thời trang không có mặt</b>, tự động thay đổi phom dáng Nam / Nữ để tôn vinh bộ trang phục mà không bị xao lãng bởi nét mặt ảo.
+                <b>✨ Nguyên tắc của Việt Phục Remix:</b> Toàn bộ trang phục và phụ kiện trên ứng dụng đều được số hóa từ các bộ phục dựng cổ phục thật, giữ nguyên đường kim mũi chỉ, chất liệu lụa, gấm, sa, đũi. <b>Trang phục</b> hiển thị tự động thay đổi phom dáng Nam / Nữ để tôn vinh bộ trang phục mà không bị xao lãng bởi nét mặt ảo.
               </div>
             </div>
 
@@ -2334,9 +2338,9 @@ export default function App() {
                 4. Hướng Dẫn Trải Nghiệm
               </h3>
               <ol style={{ paddingLeft: '20px', lineHeight: 1.8, fontSize: '15px', margin: 0 }}>
-                <li><b>Trang chủ:</b> Xem các bộ sưu tập giới thiệu và cuộn qua 8 set phối sẵn trên cốt mannequin thời trang.</li>
-                <li><b>Thử set phối sẵn:</b> Bấm nút "Thử set này ⚡" để tự động đưa toàn bộ các món vào mannequin thử đồ.</li>
-                <li><b>Tự phối theo ý thích:</b> Chọn giới tính Nam / Nữ để mannequin tự điều chỉnh phom dáng; sau đó duyệt qua từng tab Áo, Váy/Quần, Nón, Túi, Giày, Phụ kiện.</li>
+                <li><b>Trang chủ:</b> Xem các bộ sưu tập giới thiệu và cuộn qua 8 set phối sẵn.</li>
+                <li><b>Thử set phối sẵn:</b> Bấm nút "Thử set này ⚡" để tự động đưa toàn bộ các món vào phòng thử đồ.</li>
+                <li><b>Tự phối theo ý thích:</b> Chọn giới tính Nam / Nữ để tùy chỉnh trang phục; sau đó duyệt qua từng tab Áo, Váy/Quần, Nón, Túi, Giày, Phụ kiện.</li>
                 <li><b>Chat với Stylist AI:</b> Trò chuyện, hỏi ý kiến phối màu hoặc kiểm tra xem set đồ có vi phạm quy chuẩn văn hóa hay không.</li>
                 <li><b>Xuất poster OOTD:</b> Tải ảnh poster tỷ lệ 4:5 chất lượng cao để chia sẻ lên mạng xã hội hoặc lưu trữ kỷ niệm.</li>
               </ol>
@@ -2350,7 +2354,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ================= MODAL CHI TIẾT SET PHỐI SẴN (MINH HỌA MANNEQUIN) ================= */}
+        {/* ================= MODAL CHI TIẾT SET PHỐI SẴN ================= */}
         {selectedPresetDetail && (
           <div
             style={{
@@ -2358,7 +2362,7 @@ export default function App() {
               inset: 0,
               backgroundColor: 'rgba(0,0,0,0.78)',
               backdropFilter: 'blur(6px)',
-              zIndex: 100,
+              zIndex: 110,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -2430,7 +2434,7 @@ export default function App() {
 
                 <div>
                   <h4 style={{ margin: '0 0 10px 0', fontSize: '15px', color: isDark ? '#6C854B' : '#D85A3F' }}>
-                    Các món phụ kiện &amp; trang phục mặc trên mannequin:
+                    Các món phụ kiện &amp; trang phục:
                   </h4>
                   <ul style={{ margin: 0, paddingLeft: '20px', lineHeight: 1.8, fontSize: '14px' }}>
                     {selectedPresetDetail.itemSummary.map((it, idx) => (
@@ -2438,7 +2442,7 @@ export default function App() {
                     ))}
                   </ul>
                   <div style={{ marginTop: '12px', fontSize: '12px', opacity: 0.75, fontStyle: 'italic' }}>
-                    * Mannequin tự động tùy biến theo dáng {selectedPresetDetail.gender}, bảo tồn 100% chi tiết thật.
+                    * Trang phục tự động tùy biến theo giới tính {selectedPresetDetail.gender}, bảo tồn 100% chi tiết thật.
                   </div>
                 </div>
               </div>
@@ -2502,7 +2506,7 @@ export default function App() {
                     Chọn Set Đồ Phối Sẵn
                   </h2>
                   <p style={{ margin: '4px 0 0 0', opacity: 0.8, fontSize: '14.5px' }}>
-                    Chọn một bộ yêu thích để Stylist AI tự động mặc thử toàn bộ trang phục và phụ kiện vào mannequin.
+                    Chọn một bộ yêu thích để Stylist AI tự động mặc thử toàn bộ trang phục và phụ kiện.
                   </p>
                 </div>
                 <button
@@ -3097,7 +3101,7 @@ export default function App() {
 
                   {/* Lọc Giới Tính Mannequin */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ fontSize: '13px', opacity: 0.8 }}>Phom Mannequin:</span>
+                    <span style={{ fontSize: '13px', opacity: 0.8 }}>Theo giới tính:</span>
                     {['Tất cả', 'Nữ', 'Nam'].map(g => {
                       const val = g === 'Tất cả' ? null : g;
                       const isSel = userGender === val;
@@ -3107,7 +3111,7 @@ export default function App() {
                           className={`st-btn ${isSel ? 'primary' : ''}`}
                           onClick={() => setUserGender(val)}
                           style={{ padding: '4px 11px', fontSize: '12.5px', borderRadius: '8px' }}
-                          title={`Tùy chỉnh cốt mannequin theo phom ${g}`}
+                          title={`Tùy chỉnh cốt trang phục theo ${g}`}
                         >
                           {g === 'Nữ' ? '👗 Nữ' : g === 'Nam' ? '👔 Nam' : 'Tất cả'}
                         </button>
