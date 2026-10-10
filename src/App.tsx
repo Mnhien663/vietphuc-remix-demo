@@ -1665,12 +1665,20 @@ export default function App() {
           padding: 12px;
           text-align: center;
           position: relative;
-          height: 240px;
+          
+          /* --- BẮT ĐẦU PHẦN SỬA LỖI --- */
+          /* Xóa chữ height: 240px; cũ đi và thay bằng đoạn này: */
+          min-height: 250px; 
+          display: flex;
+          flex-direction: column;
+          /* --- KẾT THÚC PHẦN SỬA LỖI --- */
+
           transition: all 0.2s ease;
           border: 1.5px solid ${isDark ? 'rgba(241, 227, 200, 0.15)' : 'rgba(85, 158, 158, 0.25)'};
           background-color: ${isDark ? 'rgba(255,255,255,0.03)' : '#FFFFFF'};
           box-shadow: 0 4px 10px rgba(0,0,0,0.04);
         }
+        
         .product-card:hover {
           border-color: ${isDark ? '#F1E3C8' : '#D85A3F'};
           transform: translateY(-2px);
@@ -1693,12 +1701,27 @@ export default function App() {
           height: 150px;
           object-fit: contain;
         }
+        
         .product-name {
           margin-top: 10px;
           font-size: 13.5px;
           font-weight: 600;
-          line-height: 1.35;
+          line-height: 1.4;
           color: ${isDark ? '#F1E3C8' : '#123C46'};
+          
+          /* --- BẮT ĐẦU PHẦN SỬA LỖI --- */
+          /* Chiếm khoảng trống còn lại để đẩy nút "Chọn món này" xuống tịt dưới đáy */
+          flex-grow: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          /* Giới hạn chữ tối đa 3 dòng, nếu dài hơn sẽ biến thành dấu ... */
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          /* --- KẾT THÚC PHẦN SỬA LỖI --- */
         }
 
         /* CHAT STYLING */
