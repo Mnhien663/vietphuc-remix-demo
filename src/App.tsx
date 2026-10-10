@@ -101,7 +101,7 @@ const COLOR_LABELS: Record<string, string> = {
   hong: 'Hồng'
 };
 
-// 8 BỘ PHỐI SẴN ĐÃ ĐƯỢC CHUẨN HÓA ĐƯỜNG DẪN ẢNH VÀ FILE_PREFIX
+// 8 BỘ PHỐI SẴN ĐÃ ĐƯỢC CHUẨN HÓA LẠI LOGIC MÀU SẮC VÀ DANH MỤC PHỤ KIỆN
 const PRESET_OUTFITS: PresetOutfit[] = [
   {
     id: 'nhat_binh_royal',
@@ -114,25 +114,25 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     imageUrl: '/data/ao_nhat_binh_nu_do.png',
     layeredImages: {
       robe: '/data/ao_nhat_binh_nu_do.png',
-      bottom: '/data/chan_vay_dap_ly_nu_trang.png',
+      bottom: '/data/chan_vay_dap_ly_nu_do.png', // Đồng bộ thành màu đỏ theo primaryColor
       hat: '/data/khan_vanh_nu_vang.png',
       shoes: '/data/hai_theu_phuong_nu_do.png',
-      bag: '/data/clutch_hop_nu_bac.png', // <-- Đã sửa đúng file JSON
-      belt: '/data/tram_cai_toc_nu_bac.png' // <-- Đã sửa đúng file JSON
+      bag: '/data/clutch_hop_nu_bac.png', 
+      belt: '/data/tram_cai_toc_nu_bac.png' 
     },
     description: 'Tái hiện cốt cách cao quý hoàng gia triều Nguyễn nhưng biến tấu thanh thoát, mềm mại cho dạ tiệc thời thượng.',
-    styleAdvice: 'Áo Nhật Bình sắc chu sa phối bay bổng cùng chân váy dập ly trắng, tôn thêm vẻ uy nghi với khăn vành vàng, trâm phượng hoàng và clutch ánh bạc kiêu kỳ.',
+    styleAdvice: 'Áo Nhật Bình sắc chu sa phối ton-sur-ton cùng chân váy dập ly đỏ, tôn thêm vẻ uy nghi với khăn vành vàng, trâm phượng hoàng và clutch ánh bạc kiêu kỳ.',
     itemsConfig: {
       trangPhucPrefix: 'ao_nhat_binh',
       vayQuanPrefix: 'chan_vay_xep_ly_dai',
-      nonPrefix: 'khan_vanh',
       tuiPrefix: 'clutch_hop',
       giayPrefix: 'hai_theu_phuong',
-      phuKienPrefixes: ['tram_cai_toc', 'khuyen_tai_ngoc_trai']
+      // Chuyển khăn vành từ nonPrefix xuống đây
+      phuKienPrefixes: ['khan_vanh', 'tram_cai_toc', 'khuyen_tai_ngoc_trai'] 
     },
     itemSummary: [
       'Áo Nhật Bình Nữ (Đỏ)',
-      'Chân váy dập ly (Trắng)',
+      'Chân váy dập ly (Đỏ)', // Cập nhật text
       'Khăn vành (Vàng)',
       'Hài thêu phượng (Đỏ)',
       'Clutch hộp ánh bạc',
@@ -150,25 +150,24 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     imageUrl: '/data/ao_tac_nam_den.png',
     layeredImages: {
       robe: '/data/ao_tac_nam_den.png',
-      bottom: '/data/quan_tay_ong_rong_unisex_trang.png',
+      bottom: '/data/quan_tay_ong_rong_unisex_den.png',
       hat: '/data/khan_van_unisex_den_nam.png',
       shoes: '/data/giay_loafer_unisex_den.png',
-      bag: '/data/tui_deo_cheo_unisex_den.png', // <-- Đã sửa đúng file JSON
-      belt: '/data/dai_lung_ngoc.png' // <-- Đã sửa đúng file JSON
+      bag: '/data/tui_deo_cheo_unisex_den.png',
+      belt: '/data/dai_lung_nam_den.png' // Đã sửa
     },
-    description: 'Phong thái công tử Hà Thành nho nhã, điềm đạm với áo tấc thụng tay kết hợp quần tây suông trắng tối giản hiện đại.',
-    styleAdvice: 'Áo tấc đen uy nghiêm kết hợp quần tây ống rộng trắng tương phản, đội khăn vấn chỉn chu, mang giày loafer bóng và đai lưng cung đình.',
+    description: 'Phong thái công tử Hà Thành nho nhã, điềm đạm với áo tấc thụng tay kết hợp quần tây suông đen tối giản hiện đại.',
+    styleAdvice: 'Áo tấc đen uy nghiêm kết hợp quần tây ống rộng all-black, đội khăn vấn chỉn chu, mang giày loafer bóng và đai lưng cung đình.',
     itemsConfig: {
       trangPhucPrefix: 'ao_tac',
       vayQuanPrefix: 'quan_tay_ong_rong',
-      nonPrefix: 'khan_van',
       tuiPrefix: 'tui_deo_cheo',
       giayPrefix: 'giay_loafer',
-      phuKienPrefixes: ['dai_lung', 'dong_ho']
+      phuKienPrefixes: ['khan_van', 'dai_lung', 'dong_ho']
     },
     itemSummary: [
       'Áo Tấc Nam (Đen)',
-      'Quần tây ống rộng (Trắng)',
+      'Quần tây ống rộng (Đen)',
       'Khăn vấn Nam (Đen)',
       'Giày Loafer da bóng (Đen)',
       'Túi đeo chéo da (Đen)',
@@ -186,20 +185,19 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     imageUrl: '/data/ao_ngu_than_tay_chen_nam_xanh.png',
     layeredImages: {
       robe: '/data/ao_ngu_than_tay_chen_nam_xanh.png',
-      bottom: '/data/quan_jeans_ong_rong_xanh_denim.png',
-      hat: '/data/mu_bucket.png', // Đã tự động sửa khớp JSON
+      bottom: '/data/quan_jeans_ong_rong_xanh_denim.png', // Đã trả về tên file gốc
+      hat: '/data/mu_bucket_unisex_den.png', 
       shoes: '/data/giay_the_thao_de_bang_unisex_trang.png',
-      bag: '/data/tui_tote_canvas.png' // Đã tự động sửa khớp JSON
+      bag: '/data/tui_tote_canvas_unisex_trang.png' 
     },
     description: 'Bản phối Gen Z bùng nổ năng lượng đương đại, đưa áo ngũ thân tay chẽn vào nhịp sống dạo phố trẻ trung.',
     styleAdvice: 'Áo ngũ thân lam tươi tắn mix cùng quần jeans ống rộng streetwear, mũ bucket sành điệu, sneaker trắng và kính mát Y2K.',
     itemsConfig: {
       trangPhucPrefix: 'ao_ngu_than_tay_chen',
       vayQuanPrefix: 'quan_jeans_ong_rong',
-      nonPrefix: 'mu_bucket',
       tuiPrefix: 'tui_tote_canvas',
       giayPrefix: 'giay_the_thao_de_bang',
-      phuKienPrefixes: ['kinh_mat_chu_nhat', 'dong_ho']
+      phuKienPrefixes: ['mu_bucket', 'kinh_mat_chu_nhat', 'dong_ho']
     },
     itemSummary: [
       'Áo Ngũ Thân tay chẽn (Xanh)',
@@ -221,25 +219,24 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     imageUrl: '/data/ao_giao_linh_nu_trang.png',
     layeredImages: {
       robe: '/data/ao_giao_linh_nu_trang.png',
-      bottom: '/data/chan_vay_dap_ly_nu_den.png',
-      hat: '/data/non_ba_tam.png', // Đã tự động sửa khớp JSON
+      bottom: '/data/chan_vay_dap_ly_nu_trang.png',
+      hat: '/data/non_ba_tam_nu_be.png', // Đã sửa
       shoes: '/data/chelsea_boots_unisex_den.png',
-      bag: '/data/tui_baguette.png', // Đã tự động sửa khớp JSON
-      belt: '/data/that_lung_lua.png' // Đã tự động sửa khớp JSON
+      bag: '/data/tui_baguette_unisex_den.png', // Đã sửa
+      belt: '/data/that_lung_lua_unisex_do.png' // Đã sửa
     },
     description: 'Nét đẹp thoát tục thời Hậu Lê với vạt áo giao lĩnh đan chéo thanh thoát, hòa quyện phong cách monochrome đương đại.',
     styleAdvice: 'Áo giao lĩnh trắng tuyết thắt dây lụa đỏ son tạo điểm nhấn eo, phối chân váy dập ly đen thướt tha, nón ba tầm và chelsea boots da cá tính.',
     itemsConfig: {
       trangPhucPrefix: 'ao_giao_linh',
       vayQuanPrefix: 'chan_vay_xep_ly_dai',
-      nonPrefix: 'non_ba_tam',
       tuiPrefix: 'tui_baguette',
       giayPrefix: 'chelsea_boots',
-      phuKienPrefixes: ['that_lung_lua', 'khuyen_tai_ngoc_trai']
+      phuKienPrefixes: ['non_ba_tam', 'that_lung_lua', 'khuyen_tai_ngoc_trai']
     },
     itemSummary: [
       'Áo Giao Lĩnh Nữ (Trắng)',
-      'Chân váy dập ly (Đen)',
+      'Chân váy dập ly (Trắng)',
       'Nón ba tầm quai thao (Be)',
       'Chelsea boots da (Đen)',
       'Túi baguette kẹp nách (Đen)',
@@ -260,17 +257,16 @@ const PRESET_OUTFITS: PresetOutfit[] = [
       bottom: '/data/quan_lua_ong_rong_unisex_trang.png',
       hat: '/data/khan_van_unisex_den_nu.png',
       shoes: '/data/giay_cao_got_nu_trang.png',
-      bag: '/data/tui_mini_ngoc_trai.png' // Đã tự động sửa khớp JSON
+      bag: '/data/tui_mini_ngoc_trai_nu_trang.png' // Đã sửa
     },
     description: 'Nét đẹp thiếu nữ Tràng An thập niên 1930 lãng mạn, tôn vinh đường cong yêu kiều với áo dài chiết eo Lemur / Lê Phổ.',
     styleAdvice: 'Sắc hồng đào dịu ngọt đi cùng quần lụa trắng buông rủ, khăn vấn nhung nữ, giày cao gót thanh mảnh và túi xách chuỗi ngọc trai.',
     itemsConfig: {
       trangPhucPrefix: 'ao_dai_tan_thoi',
       vayQuanPrefix: 'quan_lua_ong_rong',
-      nonPrefix: 'khan_van',
       tuiPrefix: 'tui_mini_ngoc_trai',
       giayPrefix: 'giay_cao_got',
-      phuKienPrefixes: ['khuyen_tai_ngoc_trai', 'nhan_ngoc_bich']
+      phuKienPrefixes: ['khan_van', 'khuyen_tai_ngoc_trai', 'nhan_ngoc_bich']
     },
     itemSummary: [
       'Áo Dài Tân Thời (Hồng)',
@@ -293,19 +289,18 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     layeredImages: {
       robe: '/data/ao_ba_ba_nam_nau.png',
       bottom: '/data/quan_linen_unisex_be.png',
-      hat: '/data/khan_ran.png', // Đã tự động sửa khớp JSON
+      hat: '/data/khan_ran_unisex_den.png', // Đã cập nhật chính xác
       shoes: '/data/dep_da_unisex_nau.png',
-      bag: '/data/tui_may_tre_hop.png' // Đã tự động sửa khớp JSON
+      bag: '/data/tui_may_tre_hop_nu_nau.png' // Đã cập nhật (Lưu ý: kiểm tra thư mục nếu bạn dùng _nu_nau)
     },
     description: 'Hơi thở phóng khoáng, chân chất của miền sông nước Cửu Long với áo bà ba vải tơ và khăn rằn quấn cổ phong trần.',
     styleAdvice: 'Áo bà ba nâu đất kết hợp quần linen be thoáng mát, khăn rằn Nam Bộ, dép da quai chéo và túi mây tre đan thủ công mộc mạc.',
     itemsConfig: {
       trangPhucPrefix: 'ao_ba_ba',
       vayQuanPrefix: 'quan_linen',
-      nonPrefix: 'khan_ran',
       tuiPrefix: 'tui_may_tre',
       giayPrefix: 'dep_da',
-      phuKienPrefixes: ['dong_ho']
+      phuKienPrefixes: ['khan_ran', 'dong_ho']
     },
     itemSummary: [
       'Áo Bà Ba Nam (Nâu)',
@@ -327,21 +322,20 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     imageUrl: '/data/ao_tu_than_nu_nau.png',
     layeredImages: {
       robe: '/data/ao_tu_than_nu_nau.png',
-      bottom: '/data/vay_quay_nu_den.png',
-      hat: '/data/non_ba_tam.png', // Đã tự động sửa khớp JSON
+      bottom: '/data/vay_quay_nu_den.png', // Đã cập nhật chính xác
+      hat: '/data/non_ba_tam_nu_be.png', // Đã cập nhật chính xác
       shoes: '/data/guoc_moc_unisex_nau.png',
-      bag: '/data/tui_may_tre_hop.png', // Đã tự động sửa khớp JSON
-      belt: '/data/that_lung_lua.png' // Đã tự động sửa khớp JSON
+      bag: '/data/tui_may_tre_hop_nu_nau.png',
+      belt: '/data/that_lung_lua_unisex_vang.png' // Đã cập nhật chính xác
     },
     description: 'Nét duyên quan họ Kinh Bắc trẩy hội mùa xuân, tà áo tứ thân bốn vạt thắt dải yếm lụa vàng rực rỡ.',
     styleAdvice: 'Áo tứ thân kết hợp váy quây đen đụp cổ truyền, nón thúng quai thao quai thao, guốc mộc và trâm cài tóc phượng hoàng bằng bạc.',
     itemsConfig: {
       trangPhucPrefix: 'ao_tu_than',
       vayQuanPrefix: 'vay_quay',
-      nonPrefix: 'non_ba_tam',
       tuiPrefix: 'tui_may_tre',
       giayPrefix: 'guoc_moc',
-      phuKienPrefixes: ['that_lung_lua', 'tram_cai_toc']
+      phuKienPrefixes: ['non_ba_tam', 'that_lung_lua', 'tram_cai_toc']
     },
     itemSummary: [
       'Áo Tứ Thân Nữ (Nâu)',
@@ -365,25 +359,24 @@ const PRESET_OUTFITS: PresetOutfit[] = [
       robe: '/data/ao_tac_nu_do.png',
       bottom: '/data/quan_lua_ong_rong_unisex_trang.png',
       hat: '/data/khan_vanh_nu_vang.png',
-      shoes: '/data/hai_theu_phuong_nu_vang.png',
-      bag: '/data/clutch_hop_cung.png', // Đã tự động sửa khớp JSON
-      belt: '/data/that_lung_lua.png' // Đã tự động sửa khớp JSON
+      shoes: '/data/hai_theu_phuong_nu_do.png',
+      bag: '/data/clutch_hop_nu_bac.png', // Đã sửa
+      belt: '/data/that_lung_lua_unisex_do.png' // Đã sửa
     },
     description: 'Sắc đỏ may mắn của áo tấc thụng tay triều Nguyễn, biểu tượng cho phúc lộc và thịnh vượng trong ngày trọng đại.',
     styleAdvice: 'Áo tấc đỏ gấm phối cùng quần lụa trắng, khăn vành vàng uy nghi, hài thêu phượng hoàng rực rỡ và clutch cầm tay dự tiệc.',
     itemsConfig: {
       trangPhucPrefix: 'ao_tac',
       vayQuanPrefix: 'quan_lua_ong_rong',
-      nonPrefix: 'khan_vanh',
       tuiPrefix: 'clutch_hop',
       giayPrefix: 'hai_theu_phuong',
-      phuKienPrefixes: ['that_lung_lua', 'khuyen_tai_ngoc_trai']
+      phuKienPrefixes: ['khan_vanh', 'that_lung_lua', 'khuyen_tai_ngoc_trai']
     },
     itemSummary: [
       'Áo Tấc Nữ (Đỏ)',
       'Quần lụa ống rộng (Trắng)',
       'Khăn vành Nữ (Vàng)',
-      'Hài thêu phượng (Vàng)',
+      'Hài thêu phượng (Đỏ)',
       'Clutch hộp ánh bạc',
       'Thắt lưng lụa Đỏ & Khuyên ngọc trai'
     ]
@@ -1624,8 +1617,11 @@ export default function App() {
           width: 100%;
           height: 100%;
           object-fit: contain;
-          pointer-events: none;
+          /* Đổi 'none' thành 'auto' để ảnh nhận diện được thao tác rê chuột */
+          pointer-events: auto; 
           transition: all 0.3s ease;
+          /* Thêm con trỏ chuột hình dấu hỏi hoặc bàn tay để báo hiệu có thể xem thông tin */
+          cursor: help; 
         }
         .mockup-grid-view {
           display: grid;
@@ -2582,79 +2578,140 @@ export default function App() {
                   ) : previewMode === 'mannequin' ? (
                     <div className="mockup-stage">
                       <div className="mockup-mannequin-frame">
-
-                        {/* NHÓM BÊN TRÁI: Thu nhỏ một chút để không mất mép áo */}
+                        {/* NHÓM BÊN TRÁI: Áo & Trang phục */}
                         {selectedItems['Áo'] && (
-                          <img src={getDynamicImagePath(selectedItems['Áo'], userGender, userColor)} alt={selectedItems['Áo'].name} className="mannequin-layer" style={{ zIndex: 2, transform: 'translate(-15%, 0%) scale(0.75)' }} />
+                          <img 
+                            src={getDynamicImagePath(selectedItems['Áo'], userGender, userColor)} 
+                            alt={selectedItems['Áo'].name} 
+                            title={selectedItems['Áo'].name} // Hiện tên khi di chuột
+                            className="mannequin-layer" 
+                            style={{ zIndex: 2, transform: 'translate(-15%, 0%) scale(0.75)' }} 
+                          />
                         )}
                         {selectedItems['Trang phục'] && (
-                          <img src={getDynamicImagePath(selectedItems['Trang phục'], userGender, userColor)} alt={selectedItems['Trang phục'].name} className="mannequin-layer" style={{ zIndex: 3, transform: 'translate(-15%, 0%) scale(0.75)' }} />
+                          <img 
+                            src={getDynamicImagePath(selectedItems['Trang phục'], userGender, userColor)} 
+                            alt={selectedItems['Trang phục'].name} 
+                            title={selectedItems['Trang phục'].name} 
+                            className="mannequin-layer" 
+                            style={{ zIndex: 3, transform: 'translate(-15%, 0%) scale(0.75)' }} 
+                          />
                         )}
 
-                        {/* NHÓM BÊN PHẢI: Kéo dần vào trung tâm để hiện trọn vẹn */}
+                        {/* NHÓM BÊN PHẢI: Quần, Váy, Giày, Túi, Khăn, Đai */}
                         {selectedItems['Váy/Quần'] && (
-                          <img src={getDynamicImagePath(selectedItems['Váy/Quần'], userGender, userColor)} alt={selectedItems['Váy/Quần'].name} className="mannequin-layer" style={{ zIndex: 1, transform: 'translate(15%, 10%) scale(0.6)' }} />
+                          <img 
+                            src={getDynamicImagePath(selectedItems['Váy/Quần'], userGender, userColor)} 
+                            alt={selectedItems['Váy/Quần'].name} 
+                            title={selectedItems['Váy/Quần'].name} 
+                            className="mannequin-layer" 
+                            style={{ zIndex: 1, transform: 'translate(15%, 10%) scale(0.6)' }} 
+                          />
                         )}
+                        
                         {mainAccs.map(acc => {
                           const n = acc.name.toLowerCase();
                           if (n.includes('thắt lưng') || n.includes('đai')) {
-                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, userColor)} alt={acc.name} className="mannequin-layer" style={{ zIndex: 4, transform: 'translate(20%, -2%) scale(0.5)' }} />;
+                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, userColor)} alt={acc.name} title={acc.name} className="mannequin-layer" style={{ zIndex: 4, transform: 'translate(20%, -2%) scale(0.5)' }} />;
                           }
                           return null;
                         })}
+
                         {selectedItems['Giày'] && (
-                          <img src={getDynamicImagePath(selectedItems['Giày'], userGender, userColor)} alt={selectedItems['Giày'].name} className="mannequin-layer" style={{ transform: 'translate(18%, 32%) scale(0.48)', zIndex: 5 }} />
+                          <img 
+                            src={getDynamicImagePath(selectedItems['Giày'], userGender, userColor)} 
+                            alt={selectedItems['Giày'].name} 
+                            title={selectedItems['Giày'].name} 
+                            className="mannequin-layer" 
+                            style={{ transform: 'translate(18%, 32%) scale(0.48)', zIndex: 5 }} 
+                          />
                         )}
+                        
                         {selectedItems['Nón'] && (
-                          <img src={getDynamicImagePath(selectedItems['Nón'], userGender, userColor)} alt={selectedItems['Nón'].name} className="mannequin-layer" style={{ transform: 'translate(20%, -25%) scale(0.5)', zIndex: 6 }} />
+                          <img 
+                            src={getDynamicImagePath(selectedItems['Nón'], userGender, userColor)} 
+                            alt={selectedItems['Nón'].name} 
+                            title={selectedItems['Nón'].name} 
+                            className="mannequin-layer" 
+                            style={{ transform: 'translate(20%, -25%) scale(0.5)', zIndex: 6 }} 
+                          />
                         )}
+                        
                         {mainAccs.map(acc => {
                           const n = acc.name.toLowerCase();
-                          if (n.includes('khăn') || n.includes('trâm') || n.includes('mũ phượng')) {
-                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, userColor)} alt={acc.name} className="mannequin-layer" style={{ transform: 'translate(20%, -15%) scale(0.5)', zIndex: 6 }} />;
+                          if (n.includes('mũ') || n.includes('nón') || n.includes('khăn vấn') || n.includes('khăn vành')) {
+                            // Đội lên đầu
+                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, userColor)} alt={acc.name} title={acc.name} className="mannequin-layer" style={{ transform: 'translate(20%, -25%) scale(0.5)', zIndex: 6 }} />;
+                          } else if (n.includes('khăn rằn') || n.includes('trâm')) {
+                            // Cài trên tóc hoặc quấn cổ
+                            return <img key={acc.id} src={getDynamicImagePath(acc, userGender, userColor)} alt={acc.name} title={acc.name} className="mannequin-layer" style={{ transform: 'translate(20%, -15%) scale(0.5)', zIndex: 6 }} />;
                           }
                           return null;
                         })}
+
                         {selectedItems['Túi xách'] && (
-                          <img src={getDynamicImagePath(selectedItems['Túi xách'], userGender, userColor)} alt={selectedItems['Túi xách'].name} className="mannequin-layer" style={{ transform: 'translate(25%, 8%) scale(0.5)', zIndex: 7 }} />
+                          <img 
+                            src={getDynamicImagePath(selectedItems['Túi xách'], userGender, userColor)} 
+                            alt={selectedItems['Túi xách'].name} 
+                            title={selectedItems['Túi xách'].name} 
+                            className="mannequin-layer" 
+                            style={{ transform: 'translate(25%, 8%) scale(0.5)', zIndex: 7 }} 
+                          />
                         )}
+
                       </div>
 
                       {/* Phụ Kiện Nhỏ Điểm Xuyết (Kính, Khuyên tai, Nhẫn, Đồng hồ) */}
-                      {floatingAccs.length > 0 && (
-                        <div style={{
-                          position: 'absolute',
-                          top: '18px',
-                          right: '18px',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          gap: '8px',
-                          zIndex: 15
-                        }}>
-                          {floatingAccs.map(acc => (
-                            <div
-                              key={acc.id}
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '8px',
-                                padding: '6px 12px',
-                                borderRadius: '12px',
-                                backgroundColor: isDark ? 'rgba(0,0,0,0.75)' : 'rgba(255,255,255,0.92)',
-                                border: `1px solid ${isDark ? 'rgba(241,227,200,0.2)' : 'rgba(85,158,158,0.3)'}`,
-                                boxShadow: '0 4px 10px rgba(0,0,0,0.15)'
-                              }}
-                            >
-                              <img
-                                src={getDynamicImagePath(acc, userGender, userColor)}
-                                alt={acc.name}
-                                style={{ width: '28px', height: '28px', objectFit: 'contain' }}
-                              />
-                              <span style={{ fontSize: '12px', fontWeight: 600 }}>{acc.name}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                        {floatingAccs.length > 0 && (
+                          <>
+                            {floatingAccs.map((acc, index) => {
+                              const n = acc.name.toLowerCase();
+                              
+                              let topPosition = '50%';
+                              let rightPosition = '20%'; // Dời dần vào trung tâm nhóm đồ bên phải
+
+                              if (n.includes('khuyên tai')) {
+                                topPosition = '10%'; 
+                                rightPosition = '28%'; // Nằm lơ lửng phía trên không gian của quần/váy
+                              } else if (n.includes('kính')) {
+                                topPosition = '24%'; 
+                                rightPosition = '28%'; // Nằm ngay dưới khuyên tai, cân đối với khoảng trống
+                              } else if (n.includes('đồng hồ')) {
+                                topPosition = '45%'; 
+                                rightPosition = '10%'; // Nằm ngang hông, nép sát cạnh túi xách
+                              } else if (n.includes('nhẫn')) {
+                                topPosition = '58%'; 
+                                rightPosition = '10%'; // Nằm ngay dưới đồng hồ
+                              } else {
+                                topPosition = `${10 + index * 15}%`;
+                                rightPosition = '15%';
+                              }
+
+                              return (
+                                <img
+                                  key={acc.id}
+                                  src={getDynamicImagePath(acc, userGender, userColor)}
+                                  alt={acc.name}
+                                  title={acc.name}
+                                  style={{
+                                    position: 'absolute',
+                                    top: topPosition,
+                                    right: rightPosition,
+                                    width: '64px',
+                                    height: '64px',
+                                    objectFit: 'contain',
+                                    zIndex: 15,
+                                    filter: isDark ? 'drop-shadow(0 4px 10px rgba(0,0,0,0.5))' : 'drop-shadow(0 4px 10px rgba(0,0,0,0.15))',
+                                    transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                                    cursor: 'pointer'
+                                  }}
+                                  onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+                                  onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                />
+                              );
+                            })}
+                          </>
+                        )}
                     </div>
                   ) : (
                     /* Chế độ xem dạng lưới các món đang chọn */
