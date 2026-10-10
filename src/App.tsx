@@ -111,14 +111,14 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     gender: 'Nữ',
     primaryColor: 'do',
     colorName: 'Đỏ Chu Sa',
-    imageUrl: '/vietphuc-remix-demo/data/ao_nhat_binh_nu_do.png',
+    imageUrl: '/data/ao_nhat_binh_nu_do.png',
     layeredImages: {
-      robe: '/vietphuc-remix-demo/data/ao_nhat_binh_nu_do.png',
-      bottom: '/vietphuc-remix-demo/data/chan_vay_dap_ly_nu_do.png', // Đồng bộ thành màu đỏ theo primaryColor
-      hat: '/vietphuc-remix-demo/data/khan_vanh_nu_vang.png',
-      shoes: '/vietphuc-remix-demo/data/hai_theu_phuong_nu_do.png',
-      bag: '/vietphuc-remix-demo/data/clutch_hop_nu_bac.png', 
-      belt: '/vietphuc-remix-demo/data/tram_cai_toc_nu_bac.png' 
+      robe: '/data/ao_nhat_binh_nu_do.png',
+      bottom: '/data/chan_vay_dap_ly_nu_do.png', // Đồng bộ thành màu đỏ theo primaryColor
+      hat: '/data/khan_vanh_nu_vang.png',
+      shoes: '/data/hai_theu_phuong_nu_do.png',
+      bag: '/data/clutch_hop_nu_bac.png', 
+      belt: '/data/tram_cai_toc_nu_bac.png' 
     },
     description: 'Tái hiện cốt cách cao quý hoàng gia triều Nguyễn nhưng biến tấu thanh thoát, mềm mại cho dạ tiệc thời thượng.',
     styleAdvice: 'Áo Nhật Bình sắc chu sa phối ton-sur-ton cùng chân váy dập ly đỏ, tôn thêm vẻ uy nghi với khăn vành vàng, trâm phượng hoàng và clutch ánh bạc kiêu kỳ.',
@@ -147,14 +147,14 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     gender: 'Nam',
     primaryColor: 'den',
     colorName: 'Đen Tuyển',
-    imageUrl: '/vietphuc-remix-demo/data/ao_tac_nam_den.png',
+    imageUrl: '/data/ao_tac_nam_den.png',
     layeredImages: {
-      robe: '/vietphuc-remix-demo/data/ao_tac_nam_den.png',
-      bottom: '/vietphuc-remix-demo/data/quan_tay_ong_rong_unisex_den.png',
-      hat: '/vietphuc-remix-demo/data/khan_van_unisex_den_nam.png',
-      shoes: '/vietphuc-remix-demo/data/giay_loafer_unisex_den.png',
-      bag: '/vietphuc-remix-demo/data/tui_deo_cheo_unisex_den.png',
-      belt: '/vietphuc-remix-demo/data/dai_lung_nam_den.png' // Đã sửa
+      robe: '/data/ao_tac_nam_den.png',
+      bottom: '/data/quan_tay_ong_rong_unisex_den.png',
+      hat: '/data/khan_van_unisex_den_nam.png',
+      shoes: '/data/giay_loafer_unisex_den.png',
+      bag: '/data/tui_deo_cheo_unisex_den.png',
+      belt: '/data/dai_lung_nam_den.png' // Đã sửa
     },
     description: 'Phong thái công tử Hà Thành nho nhã, điềm đạm với áo tấc thụng tay kết hợp quần tây suông đen tối giản hiện đại.',
     styleAdvice: 'Áo tấc đen uy nghiêm kết hợp quần tây ống rộng all-black, đội khăn vấn chỉn chu, mang giày loafer bóng và đai lưng cung đình.',
@@ -182,13 +182,13 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     gender: 'Nam',
     primaryColor: 'xanh',
     colorName: 'Xanh Lam',
-    imageUrl: '/vietphuc-remix-demo/data/ao_ngu_than_tay_chen_nam_xanh.png',
+    imageUrl: '/data/ao_ngu_than_tay_chen_nam_xanh.png',
     layeredImages: {
-      robe: '/vietphuc-remix-demo/data/ao_ngu_than_tay_chen_nam_xanh.png',
-      bottom: '/vietphuc-remix-demo/data/quan_jeans_ong_rong_xanh_denim.png', // Đã trả về tên file gốc
-      hat: '/vietphuc-remix-demo/data/mu_bucket_unisex_den.png', 
-      shoes: '/vietphuc-remix-demo/data/giay_the_thao_de_bang_unisex_trang.png',
-      bag: '/vietphuc-remix-demo/data/tui_tote_canvas_unisex_trang.png' 
+      robe: '/data/ao_ngu_than_tay_chen_nam_xanh.png',
+      bottom: '/data/quan_jeans_ong_rong_xanh_denim.png', // Đã trả về tên file gốc
+      hat: '/data/mu_bucket_unisex_den.png', 
+      shoes: '/data/giay_the_thao_de_bang_unisex_trang.png',
+      bag: '/data/tui_tote_canvas_unisex_trang.png' 
     },
     description: 'Bản phối Gen Z bùng nổ năng lượng đương đại, đưa áo ngũ thân tay chẽn vào nhịp sống dạo phố trẻ trung.',
     styleAdvice: 'Áo ngũ thân lam tươi tắn mix cùng quần jeans ống rộng streetwear, mũ bucket sành điệu, sneaker trắng và kính mát Y2K.',
@@ -216,14 +216,14 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     gender: 'Nữ',
     primaryColor: 'trang',
     colorName: 'Bạch Ngọc',
-    imageUrl: '/vietphuc-remix-demo/data/ao_giao_linh_nu_trang.png',
+    imageUrl: '/data/ao_giao_linh_nu_trang.png',
     layeredImages: {
-      robe: '/vietphuc-remix-demo/data/ao_giao_linh_nu_trang.png',
-      bottom: '/vietphuc-remix-demo/data/chan_vay_dap_ly_nu_trang.png',
-      hat: '/vietphuc-remix-demo/data/non_ba_tam_nu_be.png', // Đã sửa
-      shoes: '/vietphuc-remix-demo/data/chelsea_boots_unisex_den.png',
-      bag: '/vietphuc-remix-demo/data/tui_baguette_unisex_den.png', // Đã sửa
-      belt: '/vietphuc-remix-demo/data/that_lung_lua_unisex_do.png' // Đã sửa
+      robe: '/data/ao_giao_linh_nu_trang.png',
+      bottom: '/data/chan_vay_dap_ly_nu_trang.png',
+      hat: '/data/non_ba_tam_nu_be.png', // Đã sửa
+      shoes: '/data/chelsea_boots_unisex_den.png',
+      bag: '/data/tui_baguette_unisex_den.png', // Đã sửa
+      belt: '/data/that_lung_lua_unisex_do.png' // Đã sửa
     },
     description: 'Nét đẹp thoát tục thời Hậu Lê với vạt áo giao lĩnh đan chéo thanh thoát, hòa quyện phong cách monochrome đương đại.',
     styleAdvice: 'Áo giao lĩnh trắng tuyết thắt dây lụa đỏ son tạo điểm nhấn eo, phối chân váy dập ly đen thướt tha, nón ba tầm và chelsea boots da cá tính.',
@@ -251,13 +251,13 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     gender: 'Nữ',
     primaryColor: 'hong',
     colorName: 'Hồng Đào',
-    imageUrl: '/vietphuc-remix-demo/data/ao_dai_tan_thoi_nu_hong.png',
+    imageUrl: '/data/ao_dai_tan_thoi_nu_hong.png',
     layeredImages: {
-      robe: '/vietphuc-remix-demo/data/ao_dai_tan_thoi_nu_hong.png',
-      bottom: '/vietphuc-remix-demo/data/quan_lua_ong_rong_unisex_trang.png',
-      hat: '/vietphuc-remix-demo/data/khan_van_unisex_den_nu.png',
-      shoes: '/vietphuc-remix-demo/data/giay_cao_got_nu_trang.png',
-      bag: '/vietphuc-remix-demo/data/tui_mini_ngoc_trai_nu_trang.png' // Đã sửa
+      robe: '/data/ao_dai_tan_thoi_nu_hong.png',
+      bottom: '/data/quan_lua_ong_rong_unisex_trang.png',
+      hat: '/data/khan_van_unisex_den_nu.png',
+      shoes: '/data/giay_cao_got_nu_trang.png',
+      bag: '/data/tui_mini_ngoc_trai_nu_trang.png' // Đã sửa
     },
     description: 'Nét đẹp thiếu nữ Tràng An thập niên 1930 lãng mạn, tôn vinh đường cong yêu kiều với áo dài chiết eo Lemur / Lê Phổ.',
     styleAdvice: 'Sắc hồng đào dịu ngọt đi cùng quần lụa trắng buông rủ, khăn vấn nhung nữ, giày cao gót thanh mảnh và túi xách chuỗi ngọc trai.',
@@ -285,13 +285,13 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     gender: 'Nam',
     primaryColor: 'nau',
     colorName: 'Nâu Đất',
-    imageUrl: '/vietphuc-remix-demo/data/ao_ba_ba_nam_nau.png',
+    imageUrl: '/data/ao_ba_ba_nam_nau.png',
     layeredImages: {
-      robe: '/vietphuc-remix-demo/data/ao_ba_ba_nam_nau.png',
-      bottom: '/vietphuc-remix-demo/data/quan_linen_unisex_be.png',
-      hat: '/vietphuc-remix-demo/data/khan_ran_unisex_den.png', // Đã cập nhật chính xác
-      shoes: '/vietphuc-remix-demo/data/dep_da_unisex_nau.png',
-      bag: '/vietphuc-remix-demo/data/tui_may_tre_hop_nu_nau.png' // Đã cập nhật (Lưu ý: kiểm tra thư mục nếu bạn dùng _nu_nau)
+      robe: '/data/ao_ba_ba_nam_nau.png',
+      bottom: '/data/quan_linen_unisex_be.png',
+      hat: '/data/khan_ran_unisex_den.png', // Đã cập nhật chính xác
+      shoes: '/data/dep_da_unisex_nau.png',
+      bag: '/data/tui_may_tre_hop_nu_nau.png' // Đã cập nhật (Lưu ý: kiểm tra thư mục nếu bạn dùng _nu_nau)
     },
     description: 'Hơi thở phóng khoáng, chân chất của miền sông nước Cửu Long với áo bà ba vải tơ và khăn rằn quấn cổ phong trần.',
     styleAdvice: 'Áo bà ba nâu đất kết hợp quần linen be thoáng mát, khăn rằn Nam Bộ, dép da quai chéo và túi mây tre đan thủ công mộc mạc.',
@@ -319,14 +319,14 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     gender: 'Nữ',
     primaryColor: 'nau',
     colorName: 'Nâu Trầm',
-    imageUrl: '/vietphuc-remix-demo/data/ao_tu_than_nu_nau.png',
+    imageUrl: '/data/ao_tu_than_nu_nau.png',
     layeredImages: {
-      robe: '/vietphuc-remix-demo/data/ao_tu_than_nu_nau.png',
-      bottom: '/vietphuc-remix-demo/data/vay_quay_nu_den.png', // Đã cập nhật chính xác
-      hat: '/vietphuc-remix-demo/data/non_ba_tam_nu_be.png', // Đã cập nhật chính xác
-      shoes: '/vietphuc-remix-demo/data/guoc_moc_unisex_nau.png',
-      bag: '/vietphuc-remix-demo/data/tui_may_tre_hop_nu_nau.png',
-      belt: '/vietphuc-remix-demo/data/that_lung_lua_unisex_vang.png' // Đã cập nhật chính xác
+      robe: '/data/ao_tu_than_nu_nau.png',
+      bottom: '/data/vay_quay_nu_den.png', // Đã cập nhật chính xác
+      hat: '/data/non_ba_tam_nu_be.png', // Đã cập nhật chính xác
+      shoes: '/data/guoc_moc_unisex_nau.png',
+      bag: '/data/tui_may_tre_hop_nu_nau.png',
+      belt: '/data/that_lung_lua_unisex_vang.png' // Đã cập nhật chính xác
     },
     description: 'Nét duyên quan họ Kinh Bắc trẩy hội mùa xuân, tà áo tứ thân bốn vạt thắt dải yếm lụa vàng rực rỡ.',
     styleAdvice: 'Áo tứ thân kết hợp váy quây đen đụp cổ truyền, nón thúng quai thao quai thao, guốc mộc và trâm cài tóc phượng hoàng bằng bạc.',
@@ -354,14 +354,14 @@ const PRESET_OUTFITS: PresetOutfit[] = [
     gender: 'Nữ',
     primaryColor: 'do',
     colorName: 'Đỏ Gấm Hỷ',
-    imageUrl: '/vietphuc-remix-demo/data/ao_tac_nu_do.png',
+    imageUrl: '/data/ao_tac_nu_do.png',
     layeredImages: {
-      robe: '/vietphuc-remix-demo/data/ao_tac_nu_do.png',
-      bottom: '/vietphuc-remix-demo/data/quan_lua_ong_rong_unisex_trang.png',
-      hat: '/vietphuc-remix-demo/data/khan_vanh_nu_vang.png',
-      shoes: '/vietphuc-remix-demo/data/hai_theu_phuong_nu_do.png',
-      bag: '/vietphuc-remix-demo/data/clutch_hop_nu_bac.png', // Đã sửa
-      belt: '/vietphuc-remix-demo/data/that_lung_lua_unisex_do.png' // Đã sửa
+      robe: '/data/ao_tac_nu_do.png',
+      bottom: '/data/quan_lua_ong_rong_unisex_trang.png',
+      hat: '/data/khan_vanh_nu_vang.png',
+      shoes: '/data/hai_theu_phuong_nu_do.png',
+      bag: '/data/clutch_hop_nu_bac.png', // Đã sửa
+      belt: '/data/that_lung_lua_unisex_do.png' // Đã sửa
     },
     description: 'Sắc đỏ may mắn của áo tấc thụng tay triều Nguyễn, biểu tượng cho phúc lộc và thịnh vượng trong ngày trọng đại.',
     styleAdvice: 'Áo tấc đỏ gấm phối cùng quần lụa trắng, khăn vành vàng uy nghi, hài thêu phượng hoàng rực rỡ và clutch cầm tay dự tiệc.',
@@ -555,12 +555,12 @@ export default function App() {
 
     // Ưu tiên tìm chính xác theo prefix trước
     const exactSimpleMatch = dataFiles.find(f => f === `${prefix}.png`);
-    if (exactSimpleMatch) return `/vietphuc-remix-demo/data/${exactSimpleMatch}`;
+    if (exactSimpleMatch) return `/data/${exactSimpleMatch}`;
 
     // Tìm theo màu (Bỏ qua giới tính)
     if (activeColor) {
       const matchColorOnly = dataFiles.find(f => f.startsWith(prefix) && f.endsWith('.png') && f.includes(`_${activeColor}`));
-      if (matchColorOnly) return `/vietphuc-remix-demo/data/${matchColorOnly}`;
+      if (matchColorOnly) return `/data/${matchColorOnly}`;
     }
 
     // Logic ghép giới tính và màu
@@ -571,16 +571,16 @@ export default function App() {
 
     if (genderTag && activeColor) {
       const exactFile = `${prefix}_${genderTag}_${activeColor}.png`;
-      if (dataFiles.includes(exactFile)) return `/vietphuc-remix-demo/data/${exactFile}`;
+      if (dataFiles.includes(exactFile)) return `/data/${exactFile}`;
     }
 
     if (genderTag) {
       const matchGender = dataFiles.find(f => f.startsWith(prefix) && f.endsWith('.png') && f.includes(`_${genderTag}_`));
-      if (matchGender) return `/vietphuc-remix-demo/data/${matchGender}`;
+      if (matchGender) return `/data/${matchGender}`;
     }
 
     const fallback = dataFiles.find(f => f.startsWith(prefix) && f.endsWith('.png'));
-    return fallback ? `/vietphuc-remix-demo/data/${fallback}` : '';
+    return fallback ? `/data/${fallback}` : '';
   }
 
   // Áp dụng trọn vẹn một bộ phối sẵn vào phòng thử đồ
