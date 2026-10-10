@@ -1,16 +1,13 @@
 {
   "name": "vietphuc-remix",
-  "homepage": "https://<tên-tài-khoản-github>.github.io/<vietphuc-remix-demo>",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
     "build": "vite build",
-    "start": "tsx server.ts",
-    "lint": "tsc --noEmit",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -a"
+    "start": "node server.ts",
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@google/genai": "^2.28.0",
