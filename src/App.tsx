@@ -2269,7 +2269,7 @@ export default function App() {
                 lineHeight: 1.65,
                 fontSize: '14.5px'
               }}>
-                <b>✨ Nguyên tắc của Việt Phục Remix:</b> Toàn bộ trang phục và phụ kiện trên ứng dụng đều được số hóa từ các bộ phục dựng cổ phục thật, giữ nguyên đường kim mũi chỉ, chất liệu lụa, gấm, sa, đũi. <b>Trang phục</b> hiển thị tự động thay đổi phom dáng Nam / Nữ để tôn vinh bộ trang phục mà không bị xao lãng bởi nét mặt ảo.
+                <b>✨ Nguyên tắc của Việt Phục Remix:</b> Toàn bộ trang phục và phụ kiện trên ứng dụng đều được số hóa từ các bộ phục dựng cổ phục thật, giữ nguyên đường kim mũi chỉ, chất liệu lụa, gấm, sa, đũi. <b>Trang phục</b> hiển thị tự động thay đổi theo giới tính Nam / Nữ để tôn vinh bộ trang phục mà không bị xao lãng bởi nét mặt ảo.
               </div>
             </div>
 
