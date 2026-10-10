@@ -1007,6 +1007,9 @@ export default function App() {
     if (page !== 'result') return;
 
     const generateCanvas = async () => {
+      // 1. SỬA LỖI: Thêm lệnh chờ trình duyệt load xong toàn bộ font rồi mới vẽ
+      await document.fonts.ready; 
+
       const canvas = document.createElement('canvas');
       canvas.width = 1080;
       canvas.height = 1350;
@@ -1019,7 +1022,8 @@ export default function App() {
 
       // Chữ tiêu đề theo Font Elodie đồng bộ website
       ctx.fillStyle = isDark ? '#F1E3C8' : '#123C46';
-      ctx.font = 'normal 56px Elodie, sans-serif';
+      // 2. SỬA LỖI: Bọc tên font "Elodie" trong dấu ngoặc kép
+      ctx.font = 'normal 56px "Elodie", sans-serif'; 
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText('GỢI Ý PHỐI ĐỒ / OOTD', 540, 80);
@@ -1079,7 +1083,7 @@ export default function App() {
       const nonItem = selectedItems['Nón'] || mainAccs.find(a => a.name.toLowerCase().includes('khăn') || a.name.toLowerCase().includes('trâm') || a.name.toLowerCase().includes('mũ'));
       
       // SỬA LỖI: Lọc lấy TẤT CẢ các phụ kiện còn lại (ngoại trừ món đã được tính là Nón)
-      const otherAccs = mainAccs.filter(a => a.id !== nonItem?.id);
+      const otherAccs = mainAccs.filter(a => nonItem ? a.id !== nonItem.id : true);
 
       // ================= LOGIC GRID ĐỘNG (TỰ ĐỘNG CO GIÃN) ================= //
 
@@ -1128,7 +1132,7 @@ export default function App() {
     };
 
     generateCanvas();
-  }, [page, selectedItems, userGender, userColor, isDark, itemColors]);
+  }, [page, selectedItems, userGender, userColor, isDark, itemColors, dataFiles]);
 
   // Filtering products for current step
   const rawItemsForStep = catalog[currentStep] || [];
@@ -3278,7 +3282,6 @@ export default function App() {
                   </span>
                 </div>
 
-                // TÌM VÀ THAY THẾ KHỐI BUTTON NÀY:
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
                     <button
                       className="nav-primary-cta"
@@ -3346,42 +3349,21 @@ export default function App() {
                   </h3>
 
                   <div style={{ marginBottom: '14px', lineHeight: 1.6, fontSize: '14.5px' }}>
-                    {selectedItems['Trang phục'] && (
-                      <p><b>Trang phục chủ đạo:</b> {selectedItems['Trang phục'].name}</p>
-                    )}
-                    
-                    {/* Tích hợp nhận xét cụ thể từ hệ thống chấm điểm đã viết sẵn */}
-                    <div style={{ marginTop: '12px', padding: '14px', borderRadius: '12px', backgroundColor: isDark ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0.04)' }}>
-                      <strong style={{ color: isDark ? '#6C854B' : '#D85A3F' }}>📌 Phân tích từ hệ thống:</strong>
-                      <ul style={{ paddingLeft: '20px', marginTop: '6px', marginBottom: '10px' }}>
-                        {scoreData.nhanXet.map((nx, i) => (
-                          <li key={i}>{nx}</li>
-                        ))}
-                      </ul>
-                      
-                      {scoreData.thieuSot.length > 0 && (
-                        <>
-                          <strong style={{ color: isDark ? '#E57373' : '#D32F2F' }}>⚠️ Điểm cần khắc phục:</strong>
-                          <ul style={{ paddingLeft: '20px', marginTop: '6px', marginBottom: '0', color: isDark ? '#E57373' : '#D32F2F' }}>
-                            {scoreData.thieuSot.map((ts, i) => (
-                              <li key={i}>{ts}</li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-                    </div>
-
-                    {/* Chỉ hiển thị câu chat của AI nếu nó không phải là câu mặc định */}
-                    {messages.length > 1 && !messages[messages.length - 1].content.includes('ghi nhận') && !messages[messages.length - 1].content.includes('tiếp nhận') && (
-                      <div style={{ marginTop: '16px', whiteSpace: 'pre-line' }}>
-                        <strong style={{ color: isDark ? '#6C854B' : '#D85A3F' }}>💬 Lời khuyên cuối từ Stylist AI:</strong>
-                        <br/>
-                        <div style={{ marginTop: '4px', opacity: 0.9 }}>
-                          {typeof messages[messages.length - 1].content === 'string' 
-                            ? messages[messages.length - 1].content 
-                            : "Set đồ giao thoa hài hòa giữa di sản cổ truyền và nhịp sống trẻ trung."}
-                        </div>
-                      </div>
+                    {selectedItems['Trang phục'] ? (
+                      <>
+                        <p><b>Trang phục chủ đạo:</b> {selectedItems['Trang phục'].name}</p>
+                        {selectedItems['Trang phục'].nguon_goc && (
+                          <p><b>Nguồn gốc:</b> {selectedItems['Trang phục'].nguon_goc}</p>
+                        )}
+                        {selectedItems['Trang phục'].y_nghia && (
+                          <p><b>Ý nghĩa:</b> {selectedItems['Trang phục'].y_nghia}</p>
+                        )}
+                        {selectedItems['Trang phục'].dac_diem && (
+                          <p><b>Đặc điểm:</b> {selectedItems['Trang phục'].dac_diem}</p>
+                        )}
+                      </>
+                    ) : (
+                      <p style={{ fontStyle: 'italic', opacity: 0.7 }}>Chưa có thông tin trang phục chính.</p>
                     )}
                   </div>
                 </div>
@@ -3402,84 +3384,114 @@ export default function App() {
                 </div>
 
                 {/* Đánh Giá Trải Nghiệm */}
-                <div style={{
-                  padding: '24px',
-                  borderRadius: '16px',
-                  border: `1px solid ${isDark ? 'rgba(241, 227, 200, 0.15)' : 'rgba(85, 158, 158, 0.25)'}`,
-                  backgroundColor: isDark ? 'rgba(36, 6, 6, 0.5)' : '#FFFFFF'
-                }}>
-                  <h4 className="elodie-title" style={{ fontSize: '20px', textAlign: 'center', marginTop: 0, marginBottom: '8px' }}>
-                    Đánh giá trải nghiệm của bạn
-                  </h4>
-
-                  <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '16px' }}>
-                    {[1, 2, 3, 4, 5].map(star => (
-                      <button
-                        key={star}
-                        onClick={() => setRating(star)}
-                        style={{
-                          background: 'transparent',
-                          border: 'none',
-                          fontSize: '28px',
-                          cursor: 'pointer',
-                          color: (rating && rating >= star) ? '#FFD700' : 'rgba(128,128,128,0.4)',
-                          transition: 'transform 0.15s ease'
-                        }}
-                      >
-                        ★
-                      </button>
-                    ))}
-                  </div>
-
-                  <textarea
-                    rows={3}
-                    value={comment}
-                    onChange={e => setComment(e.target.value)}
-                    placeholder="Bạn thấy set đồ remix này thế nào? Hãy chia sẻ cảm nghĩ nhé..."
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      borderRadius: '10px',
-                      border: `1px solid ${isDark ? 'rgba(241, 227, 200, 0.25)' : 'rgba(85, 158, 158, 0.35)'}`,
-                      backgroundColor: isDark ? 'rgba(0,0,0,0.3)' : '#FFFFFF',
-                      color: isDark ? '#F1E3C8' : '#123C46',
-                      fontSize: '14px',
-                      marginBottom: '12px',
-                      outline: 'none',
-                      resize: 'none'
-                    }}
-                  />
-
-                  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button
-                      className="st-btn primary"
-                      onClick={() => {
-                        if (!rating) {
-                          setFeedbackStatus('warning');
-                          return;
-                        }
-                        setFeedbackStatus('success');
-                      }}
-                    >
-                      Gửi phản hồi
-                    </button>
-                  </div>
-
-                  {feedbackStatus === 'success' && (
-                    <div style={{ marginTop: '12px', color: '#4CAF50', fontSize: '14px', textAlign: 'center', fontWeight: 600 }}>
-                      ✓ Cảm ơn bạn đã đóng góp ý kiến cho Việt Phục Remix!
+                {!hasAnySelectedItem ? (
+                  <div style={{
+                    padding: '24px',
+                    borderRadius: '16px',
+                    border: `2px dashed ${isDark ? 'rgba(241, 227, 200, 0.15)' : 'rgba(85, 158, 158, 0.25)'}`,
+                    backgroundColor: isDark ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.4)',
+                    textAlign: 'center'
+                  }}>
+                    <div style={{ fontSize: '28px', opacity: 0.6, marginBottom: '8px' }}>👻</div>
+                    <div style={{ fontSize: '15px', fontWeight: 600, color: isDark ? '#DBCDB5' : '#335C67' }}>
+                      Bảng OOTD đang trống!
                     </div>
-                  )}
-                  {feedbackStatus === 'warning' && (
-                    <div style={{ marginTop: '12px', color: '#E57373', fontSize: '14px', textAlign: 'center' }}>
-                      Vui lòng chọn số sao đánh giá trước khi gửi nhé!
+                    <div style={{ fontSize: '13.5px', marginTop: '6px', opacity: 0.8 }}>
+                      Hãy quay lại phòng thử đồ và khoác lên vài món để có thể đánh giá trải nghiệm nhé.
                     </div>
-                  )}
-                </div>
+                  </div>
+                ) : (
+                  <div style={{
+                    padding: '24px',
+                    borderRadius: '16px',
+                    border: `1px solid ${isDark ? 'rgba(241, 227, 200, 0.15)' : 'rgba(85, 158, 158, 0.25)'}`,
+                    backgroundColor: isDark ? 'rgba(36, 6, 6, 0.5)' : '#FFFFFF'
+                  }}>
+                    {feedbackStatus === 'success' ? (
+                      /* HIỂN THỊ LỜI CẢM ƠN VÀ ẨN FORM SAU KHI GỬI THÀNH CÔNG */
+                      <div style={{ padding: '20px 0', textAlign: 'center' }}>
+                        <div style={{ fontSize: '32px', marginBottom: '12px' }}>✨</div>
+                        <h4 className="elodie-title" style={{ fontSize: '22px', margin: '0 0 8px 0', color: '#4CAF50' }}>
+                          Đánh giá đã được ghi nhận!
+                        </h4>
+                        <div style={{ color: isDark ? '#DBCDB5' : '#123C46', fontSize: '15px' }}>
+                          Cảm ơn bạn đã đóng góp ý kiến cho Việt Phục Remix.
+                        </div>
+                      </div>
+                    ) : (
+                      /* HIỂN THỊ FORM ĐÁNH GIÁ NẾU CHƯA GỬI */
+                      <>
+                        <h4 className="elodie-title" style={{ fontSize: '20px', textAlign: 'center', marginTop: 0, marginBottom: '8px' }}>
+                          Đánh giá trải nghiệm của bạn
+                        </h4>
+
+                        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '16px' }}>
+                          {[1, 2, 3, 4, 5].map(star => (
+                            <button
+                              key={star}
+                              onClick={() => setRating(star)}
+                              style={{
+                                background: 'transparent',
+                                border: 'none',
+                                fontSize: '28px',
+                                cursor: 'pointer',
+                                color: (rating && rating >= star) ? '#FFD700' : 'rgba(128,128,128,0.4)',
+                                transition: 'transform 0.15s ease'
+                              }}
+                            >
+                              ★
+                            </button>
+                          ))}
+                        </div>
+
+                        <textarea
+                          rows={3}
+                          value={comment}
+                          onChange={e => setComment(e.target.value)}
+                          placeholder="Bạn thấy set đồ remix này thế nào? Hãy chia sẻ cảm nghĩ nhé..."
+                          style={{
+                            width: '100%',
+                            padding: '12px',
+                            borderRadius: '10px',
+                            border: `1px solid ${isDark ? 'rgba(241, 227, 200, 0.25)' : 'rgba(85, 158, 158, 0.35)'}`,
+                            backgroundColor: isDark ? 'rgba(0,0,0,0.3)' : '#FFFFFF',
+                            color: isDark ? '#F1E3C8' : '#123C46',
+                            fontSize: '14px',
+                            marginBottom: '12px',
+                            outline: 'none',
+                            resize: 'none'
+                          }}
+                        />
+
+                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                          <button
+                            className="st-btn primary"
+                            onClick={() => {
+                              if (!rating) {
+                                setFeedbackStatus('warning');
+                                return;
+                              }
+                              setFeedbackStatus('success');
+                            }}
+                          >
+                            Gửi phản hồi
+                          </button>
+                        </div>
+
+                        {feedbackStatus === 'warning' && (
+                          <div style={{ marginTop: '12px', color: '#E57373', fontSize: '14px', textAlign: 'center' }}>
+                            Vui lòng chọn số sao đánh giá trước khi gửi nhé!
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
-          </div>
+          </div> 
         )}
+
       </div>
     </div>
   );
