@@ -1007,6 +1007,9 @@ export default function App() {
     if (page !== 'result') return;
 
     const generateCanvas = async () => {
+      // 1. SỬA LỖI: Thêm lệnh chờ trình duyệt load xong toàn bộ font rồi mới vẽ
+      await document.fonts.ready; 
+
       const canvas = document.createElement('canvas');
       canvas.width = 1080;
       canvas.height = 1350;
@@ -1019,7 +1022,8 @@ export default function App() {
 
       // Chữ tiêu đề theo Font Elodie đồng bộ website
       ctx.fillStyle = isDark ? '#F1E3C8' : '#123C46';
-      ctx.font = 'normal 56px Elodie, sans-serif';
+      // 2. SỬA LỖI: Bọc tên font "Elodie" trong dấu ngoặc kép
+      ctx.font = 'normal 56px "Elodie", sans-serif'; 
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText('GỢI Ý PHỐI ĐỒ / OOTD', 540, 80);
@@ -3350,39 +3354,7 @@ export default function App() {
                       <p><b>Trang phục chủ đạo:</b> {selectedItems['Trang phục'].name}</p>
                     )}
                     
-                    {/* Tích hợp nhận xét cụ thể từ hệ thống chấm điểm đã viết sẵn */}
-                    <div style={{ marginTop: '12px', padding: '14px', borderRadius: '12px', backgroundColor: isDark ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0.04)' }}>
-                      <strong style={{ color: isDark ? '#6C854B' : '#D85A3F' }}>📌 Phân tích từ hệ thống:</strong>
-                      <ul style={{ paddingLeft: '20px', marginTop: '6px', marginBottom: '10px' }}>
-                        {scoreData.nhanXet.map((nx, i) => (
-                          <li key={i}>{nx}</li>
-                        ))}
-                      </ul>
-                      
-                      {scoreData.thieuSot.length > 0 && (
-                        <>
-                          <strong style={{ color: isDark ? '#E57373' : '#D32F2F' }}>⚠️ Điểm cần khắc phục:</strong>
-                          <ul style={{ paddingLeft: '20px', marginTop: '6px', marginBottom: '0', color: isDark ? '#E57373' : '#D32F2F' }}>
-                            {scoreData.thieuSot.map((ts, i) => (
-                              <li key={i}>{ts}</li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-                    </div>
 
-                    {/* Chỉ hiển thị câu chat của AI nếu nó không phải là câu mặc định */}
-                    {messages.length > 1 && !messages[messages.length - 1].content.includes('ghi nhận') && !messages[messages.length - 1].content.includes('tiếp nhận') && (
-                      <div style={{ marginTop: '16px', whiteSpace: 'pre-line' }}>
-                        <strong style={{ color: isDark ? '#6C854B' : '#D85A3F' }}>💬 Lời khuyên cuối từ Stylist AI:</strong>
-                        <br/>
-                        <div style={{ marginTop: '4px', opacity: 0.9 }}>
-                          {typeof messages[messages.length - 1].content === 'string' 
-                            ? messages[messages.length - 1].content 
-                            : "Set đồ giao thoa hài hòa giữa di sản cổ truyền và nhịp sống trẻ trung."}
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
 
