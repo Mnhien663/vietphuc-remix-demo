@@ -239,32 +239,36 @@ app.post('/api/chat', async (req, res) => {
 
     const rawText = response.text || '';
     try {
-      const parsed = JSON.parse(rawText);
-      res.json(parsed);
+      JSON.parse(rawText);
+      res.json({ reply: rawText });
     } catch {
       // Fallback
       res.json({
-        message: rawText || 'Stylist AI đang lắng nghe bạn nè!',
-        warning: null,
-        options: [
-          'Tư vấn chọn Áo Tấc',
-          'Tư vấn Áo Nhật Bình',
-          'Set đồ dạo phố cuối tuần',
-          'Phối đồ chụp ảnh Tết'
-        ]
+        reply: JSON.stringify({
+          message: rawText || 'Stylist AI đang lắng nghe bạn nè!',
+          warning: null,
+          options: [
+            'Tư vấn chọn Áo Tấc',
+            'Tư vấn Áo Nhật Bình',
+            'Set đồ dạo phố cuối tuần',
+            'Phối đồ chụp ảnh Tết'
+          ]
+        })
       });
     }
   } catch (err: any) {
     console.error('Gemini API Error:', err);
-    res.json({
-      message: 'Stylist AI đang bảo trì kết nối chút xíu. Bạn thử gửi lại hoặc chọn các chủ đề gợi ý bên dưới nha!',
-      warning: null,
-      options: [
-        'Chọn đồ cho Nam',
-        'Chọn đồ cho Nữ',
-        'Áo Tấc hiện đại',
-        'Áo Nhật Bình Remix'
-      ]
+      res.json({
+        reply: JSON.stringify({
+          message: 'Dạ Stylist đang suy nghĩ hơi lâu chút xíu. Bồ thử gửi lại hoặc chọn các chủ đề gợi ý bên dưới nha!',
+          warning: null,
+          options: [
+            'Chọn đồ cho Nam',
+            'Chọn đồ cho Nữ',
+            'Áo Tấc hiện đại',
+            'Áo Nhật Bình Remix'
+        ]
+      })
     });
   }
 });
