@@ -788,7 +788,7 @@ export default function App() {
       nhanXet.push('Hòa sắc đồng điệu và an toàn (+2đ)');
       goiYAi.push('💡 Bồ nên thay đổi hoặc chọn phụ kiện khác màu trung tính (đen, trắng, bạc) để có thêm điểm nhấn cho bộ đồ.');
       colorHarmony = true;
-    } else if (mauNoiBat.length === 1) {
+    } else if (mauNoiBat.length === 1 || mauNoiBat.length === 3) {
       diem += 3;
       nhanXet.push(`Hòa sắc Monochrome / Điểm nhấn màu ${mauNoiBat[0]} thanh lịch (+3đ)`);
       colorHarmony = true;
