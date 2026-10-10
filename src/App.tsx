@@ -526,7 +526,7 @@ export default function App() {
   const [feedbackStatus, setFeedbackStatus] = useState<'idle' | 'success' | 'warning'>('idle');
 
   const sliderRef = useRef<HTMLDivElement>(null);
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatScrollRef = useRef<HTMLDivElement>(null); // Dùng ref cho container 
 
   useEffect(() => {
     fetch('/api/catalog')
@@ -538,8 +538,14 @@ export default function App() {
       .catch(console.error);
   }, []);
 
+  // Thay thế useEffect cũ bằng đoạn này
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (chatScrollRef.current) {
+      chatScrollRef.current.scrollTo({
+        top: chatScrollRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   }, [messages]);
 
   function getDynamicImagePath(item: CatalogItem | null, gender: string | null, colorCode: string | null, overrideFilter?: string | null): string {
@@ -881,7 +887,7 @@ export default function App() {
       });
 
       const data = await res.json();
-      let replyContent = data.reply || 'Stylist AI đã tiếp nhận ý kiến của bạn!';
+      let replyContent = data.reply || 'Dạ, Stylist AI đã ghi nhận! Bồ có muốn tui tư vấn thêm về cách phối màu hay chọn phụ kiện nào cho hợp với set này không?';
       let replyOptions: string[] = [];
 
       try {
@@ -2828,7 +2834,7 @@ export default function App() {
                   <span style={{ fontSize: '12px', opacity: 0.7 }}>Trực tuyến · Tư vấn chuẩn mực</span>
                 </div>
 
-                <div style={{ flex: 1, overflowY: 'auto', paddingRight: '6px', marginBottom: '14px' }}>
+                <div ref={chatScrollRef} style={{ flex: 1, overflowY: 'auto', paddingRight: '6px', marginBottom: '14px' }}>
                   {messages.map((msg, idx) => {
                     const roleClass = msg.role === 'user' ? 'user' : 'bot';
                     return (
@@ -2899,7 +2905,6 @@ export default function App() {
                       <div className="chat-bubble bot">Stylist AI đang suy nghĩ câu trả lời...</div>
                     </div>
                   )}
-                  <div ref={chatEndRef} />
                 </div>
 
                 <form onSubmit={handleSendChat} style={{ display: 'flex', gap: '8px' }}>
@@ -3208,29 +3213,39 @@ export default function App() {
                     {selectedItems['Trang phục'] && (
                       <p><b>Trang phục chủ đạo:</b> {selectedItems['Trang phục'].name}</p>
                     )}
-                    {messages.length > 1 ? (
-                      <div style={{ whiteSpace: 'pre-line' }}>
-                        {(() => {
-                          const content = typeof messages[messages.length - 1].content === 'string'
-                            ? messages[messages.length - 1].content
-                            : JSON.stringify(messages[messages.length - 1].content);
+                    
+                    {/* Tích hợp nhận xét cụ thể từ hệ thống chấm điểm đã viết sẵn */}
+                    <div style={{ marginTop: '12px', padding: '14px', borderRadius: '12px', backgroundColor: isDark ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0.04)' }}>
+                      <strong style={{ color: isDark ? '#6C854B' : '#D85A3F' }}>📌 Phân tích từ hệ thống:</strong>
+                      <ul style={{ paddingLeft: '20px', marginTop: '6px', marginBottom: '10px' }}>
+                        {scoreData.nhanXet.map((nx, i) => (
+                          <li key={i}>{nx}</li>
+                        ))}
+                      </ul>
+                      
+                      {scoreData.thieuSot.length > 0 && (
+                        <>
+                          <strong style={{ color: isDark ? '#E57373' : '#D32F2F' }}>⚠️ Điểm cần khắc phục:</strong>
+                          <ul style={{ paddingLeft: '20px', marginTop: '6px', marginBottom: '0', color: isDark ? '#E57373' : '#D32F2F' }}>
+                            {scoreData.thieuSot.map((ts, i) => (
+                              <li key={i}>{ts}</li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+                    </div>
 
-                          // Cắt và tách chuỗi để in đậm phần kẹp giữa **
-                          return content.split(/(\*\*.*?\*\*)/g).map((part, i) =>
-                            part.startsWith('**') && part.endsWith('**') ? (
-                              <strong key={i} style={{ color: isDark ? '#6C854B' : '#D85A3F' }}>
-                                {part.slice(2, -2)}
-                              </strong>
-                            ) : (
-                              <span key={i}>{part}</span>
-                            )
-                          );
-                        })()}
+                    {/* Chỉ hiển thị câu chat của AI nếu nó không phải là câu mặc định */}
+                    {messages.length > 1 && !messages[messages.length - 1].content.includes('ghi nhận') && !messages[messages.length - 1].content.includes('tiếp nhận') && (
+                      <div style={{ marginTop: '16px', whiteSpace: 'pre-line' }}>
+                        <strong style={{ color: isDark ? '#6C854B' : '#D85A3F' }}>💬 Lời khuyên cuối từ Stylist AI:</strong>
+                        <br/>
+                        <div style={{ marginTop: '4px', opacity: 0.9 }}>
+                          {typeof messages[messages.length - 1].content === 'string' 
+                            ? messages[messages.length - 1].content 
+                            : "Set đồ giao thoa hài hòa giữa di sản cổ truyền và nhịp sống trẻ trung."}
+                        </div>
                       </div>
-                    ) : (
-                      <p style={{ opacity: 0.85 }}>
-                        Set đồ giao thoa hài hòa giữa di sản cổ truyền và nhịp sống trẻ trung. Sự kết hợp thể hiện gu thẩm mỹ tinh tế và cá tính tự tin của người mặc.
-                      </p>
                     )}
                   </div>
                 </div>
